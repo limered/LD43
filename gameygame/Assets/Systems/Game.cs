@@ -27,6 +27,9 @@ namespace Systems
             Init();
 
             MessageBroker.Default.Publish(new GameMsgFinishedLoading());
+
+            // TODO Uncomment, when start screen added
+            
         }
 
         private static IEnumerable<Type> CollectAllSystems()
