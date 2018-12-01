@@ -4,21 +4,21 @@ namespace SystemBase.StateMachineBase
 {
     public class StateContext<T> : IStateContext<BaseState<T>, T>
     {
-        private readonly ReactiveCommand<BaseState<T>> _afterStateChange;
-        private readonly ReactiveCommand<BaseState<T>> _bevoreStateChange;
+        private readonly ReactiveCommand<Tuple<BaseState<T>, BaseState<T>>> _afterStateChange;
+        private readonly ReactiveCommand<Tuple<BaseState<T>, BaseState<T>>> _bevoreStateChange;
 
         public StateContext()
         {
-            _bevoreStateChange = new ReactiveCommand<BaseState<T>>();
-            _afterStateChange = new ReactiveCommand<BaseState<T>>();
+            _bevoreStateChange = new ReactiveCommand<Tuple<BaseState<T>, BaseState<T>>>();
+            _afterStateChange = new ReactiveCommand<Tuple<BaseState<T>, BaseState<T>>>();
         }
 
-        public ReactiveCommand<BaseState<T>> AfterStateChange
+        public ReactiveCommand<Tuple<BaseState<T>, BaseState<T>>> AfterStateChange
         {
             get { return _afterStateChange; }
         }
 
-        public ReactiveCommand<BaseState<T>> BevoreStateChange
+        public ReactiveCommand<Tuple<BaseState<T>, BaseState<T>>> BevoreStateChange
         {
             get { return _bevoreStateChange; }
         }
@@ -33,12 +33,13 @@ namespace SystemBase.StateMachineBase
                 return false;
             }
 
-            _bevoreStateChange.Execute(state);
+            _bevoreStateChange.Execute(new Tuple<BaseState<T>, BaseState<T>>(CurrentState.Value, state));
 
+            var lastState = CurrentState.Value;
             CurrentState.Value = state;
             CurrentState.Value.Enter(this);
 
-            _afterStateChange.Execute(state);
+            _afterStateChange.Execute(new Tuple<BaseState<T>, BaseState<T>>(lastState, CurrentState.Value));
 
             return true;
         }
