@@ -1,5 +1,6 @@
 ﻿using SystemBase;
 using Systems.GameState.Physics;
+using Systems.Physics;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -29,12 +30,9 @@ namespace Systems.Player
             {
                 physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, component.JumpTakeofSpeed);
             }
-            else if(Input.GetButtonUp("Jump"))
+            else if(Input.GetButtonUp("Jump") && physics.Velocity.Value.y > 0)
             {
-                if (physics.Velocity.Value.y > 0)
-                {
-                    physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, physics.Velocity.Value.y * 0.5f);
-                }
+                physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, physics.Velocity.Value.y * 0.5f);
             }
 
             physics.TargetVellocity.Value = move;

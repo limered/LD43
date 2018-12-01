@@ -3,7 +3,7 @@ using SystemBase;
 using UniRx;
 using UnityEngine;
 
-namespace Systems.GameState.Physics
+namespace Systems.Physics
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class OldschoolPhysicComponent : GameComponent
