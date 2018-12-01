@@ -7,19 +7,13 @@ using UnityEngine;
 namespace Systems.GameState.Physics
 {
     [GameSystem]
-    public class PhysicSystem : GameSystem<PhysicalEntityComponent>
+    public class OldschoolPhysicSystem : GameSystem<OldschoolPhysicComponent>
     {
         private const float MinMoveDistance = 0.001f;
         private const float CollisionShell = 0.01f;
         private const float MinGroundNormalY = 0.65f;
         
-
-        public override void Init()
-        {
-            base.Init();
-        }
-
-        public override void Register(PhysicalEntityComponent component)
+        public override void Register(OldschoolPhysicComponent component)
         {
             component
                 .FixedUpdateAsObservable()
@@ -35,30 +29,29 @@ namespace Systems.GameState.Physics
             component.ContactFilter = contactFilter;
         }
 
-        private static void FixedUpdate(PhysicalEntityComponent component)
+        private static void FixedUpdate(OldschoolPhysicComponent component)
         {
-            component.IsGrounded.Value = false;
-
             var rb2D = component.GetComponent<Rigidbody2D>();
 
             component.Velocity.Value += component.GravityModifier.Value * Physics2D.gravity * Time.deltaTime;
+            component.Velocity.Value = new Vector2(component.TargetVellocity.Value.x, component.Velocity.Value.y);
+
+            component.IsGrounded.Value = false;
+
             var deltaPosition = component.Velocity.Value * Time.deltaTime;
+            var moveAlongGround = new Vector2(component.GroundNormal.Value.y, -component.GroundNormal.Value.x);
 
-            var move = Vector2.up * deltaPosition;
-
-            var distance = move.magnitude > MinMoveDistance ? 
-                ComputeDistanceToGround(component, move, rb2D) : 
-                move.magnitude;
-
-            rb2D.position = rb2D.position + move.normalized * distance;
+            Move(moveAlongGround * deltaPosition.x, component, rb2D, false);
+            Move(Vector2.up * deltaPosition.y, component, rb2D, true);
         }
 
-        private static float ComputeDistanceToGround(PhysicalEntityComponent component, Vector2 move, Rigidbody2D rb2D)
+        private static void Move(Vector2 movement, OldschoolPhysicComponent component, Rigidbody2D rb2D, bool isVertical)
         {
-            var distance = move.magnitude;
+            var distance = movement.magnitude;
+            if (distance < MinMoveDistance) return;
 
             var hitBuffer = new RaycastHit2D[16];
-            var collisionCount = rb2D.Cast(move, component.ContactFilter, hitBuffer, distance + CollisionShell);
+            var collisionCount = rb2D.Cast(movement, component.ContactFilter, hitBuffer, distance + CollisionShell);
             var hitBufferList = hitBuffer.Take(collisionCount);
 
             foreach (var hit in hitBufferList)
@@ -67,8 +60,11 @@ namespace Systems.GameState.Physics
                 if (currentNormal.y > MinGroundNormalY)
                 {
                     component.IsGrounded.Value = true;
-                    component.GroundNormal.Value = currentNormal;
-                    currentNormal.x = 0;
+                    if (isVertical)
+                    {
+                        component.GroundNormal.Value = currentNormal;
+                        currentNormal.x = 0;
+                    }
                 }
 
                 var projection = Vector2.Dot(component.Velocity.Value, currentNormal);
@@ -81,7 +77,7 @@ namespace Systems.GameState.Physics
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
 
-            return distance;
+            rb2D.position = rb2D.position + movement.normalized * distance;
         }
     }
 }
