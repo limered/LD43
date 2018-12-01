@@ -29,7 +29,7 @@ namespace Systems.Player
 
         public override void Register(PlayerComponent component)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
