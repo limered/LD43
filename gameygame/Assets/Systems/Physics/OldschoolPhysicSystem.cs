@@ -34,12 +34,12 @@ namespace Systems.GameState.Physics
         {
             var rb2D = component.GetComponent<Rigidbody2D>();
 
-            component.Velocity.Value += component.GravityModifier.Value * Physics2D.gravity * Time.deltaTime;
+            component.Velocity.Value += component.GravityModifier.Value * Physics2D.gravity * Time.fixedDeltaTime;
             component.Velocity.Value = new Vector2(component.TargetVellocity.Value.x, component.Velocity.Value.y);
 
             component.IsGrounded.Value = false;
 
-            var deltaPosition = component.Velocity.Value * Time.deltaTime;
+            var deltaPosition = component.Velocity.Value * Time.fixedDeltaTime;
             var moveAlongGround = new Vector2(component.GroundNormal.Value.y, -component.GroundNormal.Value.x);
 
             Move(moveAlongGround * deltaPosition.x, component, rb2D, false);
