@@ -1,8 +1,10 @@
 ﻿using SystemBase;
+using Systems.Health;
 using UnityEngine;
 
 namespace Systems.Enemy.Patrol
 {
+    
     public class PatrolEnemySpawnerComponent : GameComponent
     {
         public GameObject PatrolPrefab;
