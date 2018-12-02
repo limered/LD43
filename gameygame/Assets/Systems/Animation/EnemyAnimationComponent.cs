@@ -8,6 +8,6 @@ namespace Systems.Animation
 {
     public class EnemyAnimationComponent : GameComponent
     {
-        
+        public Transform WhatShouldRotateWithDirection;
     }
 }

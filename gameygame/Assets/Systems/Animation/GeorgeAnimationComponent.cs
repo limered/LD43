@@ -8,6 +8,6 @@ namespace Systems.Animation
 {
     public class GeorgeAnimationComponent : GameComponent
     {
-        
+        public Transform WhatShouldRotateWithDirection;
     }
 }
