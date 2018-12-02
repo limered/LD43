@@ -1,7 +1,11 @@
 ﻿using SystemBase;
 using SystemBase.StateMachineBase;
+using Systems.Combat.Events;
 using Systems.Enemy.Patrol;
 using Systems.GameState.States;
+using Systems.Health;
+using Systems.Health.Actions;
+using Systems.Health.Events;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -11,7 +15,7 @@ using Object = UnityEngine.Object;
 namespace Systems.Enemy
 {
     [GameSystem]
-    public class EnemySystem : GameSystem<PatrolEnemySpawnerComponent>
+    public class EnemySystem : GameSystem<PatrolEnemySpawnerComponent, PatrolEnemyComponent>
     {
         public override void Init()
         {
@@ -72,6 +76,27 @@ namespace Systems.Enemy
             {
                 enemy.IsActive = true;
             }
+        }
+
+        public override void Register(PatrolEnemyComponent component)
+        {
+            MessageBroker.Default.Receive<CombatEvtProjectileHit>()
+                .Where(hit => hit.HitData.rigidbody.gameObject == component.gameObject)
+                .Subscribe(hit =>
+                {
+                    MessageBroker.Default.Publish(new HealthActSubtract
+                    {
+                        CanKill = true,
+                        Target = component.gameObject,
+                        Amount = component.GetComponent<HealthComponent>().CurrentHealth.Value
+                    });
+                })
+                .AddTo(component);
+
+            MessageBroker.Default.Receive<HealthEvtDied>()
+                .Where(died => died.Target == component.gameObject)
+                .Subscribe(died => Object.Destroy(died.Target))
+                .AddTo(component);
         }
     }
 }
