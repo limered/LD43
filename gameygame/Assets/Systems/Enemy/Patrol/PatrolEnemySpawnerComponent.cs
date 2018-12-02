@@ -1,7 +1,7 @@
 ﻿using SystemBase;
 using UnityEngine;
 
-namespace Systems.Enemy
+namespace Systems.Enemy.Patrol
 {
     public class PatrolEnemySpawnerComponent : GameComponent
     {
