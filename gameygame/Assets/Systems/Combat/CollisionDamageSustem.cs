@@ -1,8 +1,9 @@
 ﻿using System;
 using SystemBase;
 using Systems.GameState.Physics;
-using Systems.Physics;
+using Systems.Health.Actions;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace Systems.Combat
@@ -12,24 +13,25 @@ namespace Systems.Combat
     {
         public override void Register(CollisionDamageComponent component)
         {
-            component.GetComponent<OldschoolPhysicComponent>()
-                .CollisionDetected
+            component.OnCollisionEnter2DAsObservable()
                 .Subscribe(OnCollisionDetected(component))
                 .AddTo(component);
         }
 
-        private Action<RaycastHit2D[]> OnCollisionDetected(CollisionDamageComponent component)
+        private Action<Collision2D> OnCollisionDetected(CollisionDamageComponent component)
         {
             return ds =>
             {
-
+                if (ds.gameObject.GetComponent<CollisionDamageRecieverComponent>())
+                {
+                    MessageBroker.Default.Publish(new HealthActSubtract
+                    {
+                        CanKill = true,
+                        Target = ds.gameObject,
+                        Amount = component.DamageToPlayer
+                    });
+                }
             };
         }
-    }
-
-    [RequireComponent(typeof(OldschoolPhysicComponent))]
-    public class CollisionDamageComponent : GameComponent
-    {
-        public float DamageToPlayer;
     }
 }
