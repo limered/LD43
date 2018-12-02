@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114841259828027498}
   - component: {fileID: 114050459364729016}
   - component: {fileID: 114233417901710824}
+  - component: {fileID: 114182283973410184}
   m_Layer: 10
   m_Name: George
   m_TagString: Untagged
@@ -164,6 +165,17 @@ MonoBehaviour:
   SmallSize: 1
   CurrentSize:
     value: 2
+--- !u!114 &114182283973410184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1187199741639650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8bde028d57ae5418d6a8985e3b098a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114233417901710824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b56102843325482b961fedfd0a81e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhatShouldRotateWithDirection: {fileID: 0}
 --- !u!114 &114841259828027498
 MonoBehaviour:
   m_ObjectHideFlags: 1

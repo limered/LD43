@@ -182,6 +182,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   Speed: 3
   MaxTravelDistance: 2
+  Damage: 10
 --- !u!212 &212410282960369068
 SpriteRenderer:
   m_ObjectHideFlags: 1

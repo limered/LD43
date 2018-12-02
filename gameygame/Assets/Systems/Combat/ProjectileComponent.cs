@@ -11,5 +11,7 @@ namespace Systems.Combat
         public Vector2 Direction;
         public float Speed = 5;
         public float MaxTravelDistance;
+
+        public float Damage;
     }
 }

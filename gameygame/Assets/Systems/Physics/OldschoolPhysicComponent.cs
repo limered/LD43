@@ -18,8 +18,10 @@ namespace Systems.Physics
         public Vector2ReactiveProperty GroundNormal = new Vector2ReactiveProperty();
         [NonSerialized]
         public Vector2ReactiveProperty TargetVellocity = new Vector2ReactiveProperty();
+        [NonSerialized]
+        public ReactiveCommand<RaycastHit2D[]> CollisionDetected = new ReactiveCommand<RaycastHit2D[]>();
 
-        
+
         public ContactFilter2D ContactFilter { get; set; }
     }
 }

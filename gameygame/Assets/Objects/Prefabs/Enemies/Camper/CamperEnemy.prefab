@@ -37,10 +37,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4033134308703842}
   - component: {fileID: 50014249069360140}
-  - component: {fileID: 61272615518884546}
   - component: {fileID: 114103105774398518}
   - component: {fileID: 114286837614000820}
   - component: {fileID: 114892810740810306}
+  - component: {fileID: 70230777675628602}
+  - component: {fileID: 114438828597490192}
+  - component: {fileID: 114790712528743752}
   m_Layer: 14
   m_Name: CamperEnemy
   m_TagString: Untagged
@@ -95,8 +97,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61272615518884546
-BoxCollider2D:
+--- !u!70 &70230777675628602
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -108,18 +110,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.115, y: 0.13733333}
-    newSize: {x: 3.4499998, y: 4.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.11464143, y: 0.13824922}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.16, y: 0.3}
+  m_Direction: 0
 --- !u!95 &95070939125579306
 Animator:
   serializedVersion: 3
@@ -164,6 +156,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8f97b190e841a085311b79bd2f286d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114438828597490192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0869b3dd4d4aa8b6fbc3ffb31f341b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartHealth: 1
+  MaxHealth: 1
+  CurrentHealth:
+    value: 1
+--- !u!114 &114790712528743752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6811c9257268401a8c28050a9c0e390e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageToPlayer: 10
 --- !u!114 &114892810740810306
 MonoBehaviour:
   m_ObjectHideFlags: 1
