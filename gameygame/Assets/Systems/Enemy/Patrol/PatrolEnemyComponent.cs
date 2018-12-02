@@ -1,8 +1,10 @@
-﻿using Systems.Physics;
+﻿using Systems.Health;
+using Systems.Physics;
 using UnityEngine;
 
 namespace Systems.Enemy.Patrol
 {
+    [RequireComponent(typeof(HealthComponent))]
     public class PatrolEnemyComponent : EnemyComponent
     {
         public EnemyDirection Direction;
@@ -13,6 +15,8 @@ namespace Systems.Enemy.Patrol
 
         private new void Start()
         {
+            base.Start();
+
             _physics = GetComponent<OldschoolPhysicComponent>();
             UpdateTargetVelocity();
         }

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114229593653594942}
   - component: {fileID: 114162536297275602}
   - component: {fileID: 70281579105203346}
+  - component: {fileID: 114825708134237210}
   m_Layer: 14
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -192,6 +193,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d525c42c11d945f4398061ed8f84e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114825708134237210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554557305599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0869b3dd4d4aa8b6fbc3ffb31f341b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartHealth: 1
+  MaxHealth: 1
+  CurrentHealth:
+    value: 1
 --- !u!212 &212114516145738484
 SpriteRenderer:
   m_ObjectHideFlags: 1
