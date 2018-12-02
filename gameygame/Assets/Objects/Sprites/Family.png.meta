@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 871beb6a595c8e44b81c67a3cb498fda
+guid: f1e33d5c7f1cdcf47955b4ef1ba4b0bd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Trees01_0
-    21300002: Trees01_1
-    21300004: Trees01_2
-    21300006: Trees01_3
+    21300000: Family_0
+    21300002: Family_1
+    21300004: Family_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -49,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,96 +94,65 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trees01_0
+      name: Family_0
       rect:
         serializedVersion: 2
-        x: 160
-        y: 142
-        width: 1219
-        height: 1411
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+        x: 139
+        y: 137
+        width: 342
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd9835ba9049a874fb9609f1d6b3779d
+      spriteID: 4825d5813a23374448123b9cdd7a3586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees01_1
+      name: Family_1
       rect:
         serializedVersion: 2
-        x: 1553
-        y: 109
-        width: 1304
-        height: 1461
-      alignment: 9
-      pivot: {x: 0.5, y: 0.65000004}
+        x: 518
+        y: 137
+        width: 342
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fcb8a320dc7b074f8d464c8816f6119
+      spriteID: acbcfddb5d728d3468f5af896204297a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees01_2
+      name: Family_2
       rect:
         serializedVersion: 2
-        x: 3035
-        y: 118
-        width: 1155
-        height: 1460
-      alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+        x: 902
+        y: 133
+        width: 341
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f2a46cd2bf6f945a3bc4de5372c1d6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees01_3
-      rect:
-        serializedVersion: 2
-        x: 4386
-        y: 123
-        width: 1155
-        height: 1458
-      alignment: 9
-      pivot: {x: 0.5, y: 0.55}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60611c5c50b559d4ea4f955516cd1e4c
+      spriteID: 6b2b31e341a141b4abc8faccec34d54f
       vertices: []
       indices: 
       edges: []
@@ -192,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 09771a0dca67e554aab9f1b330516079
+    spriteID: 5e724c28db8df444c8547955ff94f44a
     vertices: []
     indices: 
     edges: []
