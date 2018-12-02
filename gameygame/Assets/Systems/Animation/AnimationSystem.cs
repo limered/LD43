@@ -15,7 +15,7 @@ using Object = UnityEngine.Object;
 namespace Systems.Animation
 {
     [GameSystem]
-    public class AnimationSystem : GameSystem<GeorgeAnimationComponent>
+    public class AnimationSystem : GameSystem<GeorgeAnimationComponent, RotationAnimationComponent>
     {
         public override void Register(GeorgeAnimationComponent component)
         {
@@ -32,6 +32,17 @@ namespace Systems.Animation
                 .Where(x => x.CanKill)
                 .Subscribe(x => player.Animator.SetTrigger("gotHit"))
                 .AddTo(component);
+        }
+
+        public override void Register(RotationAnimationComponent component)
+        {
+            if(component.StartWithRandomRotation)
+                component.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(0, 360));
+
+            component.FixedUpdateAsObservable()
+                     .Select(x => Time.fixedTime)
+                     .Subscribe(x => component.transform.Rotate(Vector3.forward, component.ConstantRotation))
+                     .AddTo(component);
         }
     }
 }
