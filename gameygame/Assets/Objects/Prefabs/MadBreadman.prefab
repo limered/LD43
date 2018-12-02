@@ -149,9 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d296d2405d06a45a015fc32ad156ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementMaxSpeed: 2
-  IsActive: 0
-  ShootingDelay: 0.5
 --- !u!114 &114587459283685442
 MonoBehaviour:
   m_ObjectHideFlags: 1

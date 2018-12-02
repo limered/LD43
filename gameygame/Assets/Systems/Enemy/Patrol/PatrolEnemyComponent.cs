@@ -23,12 +23,12 @@ namespace Systems.Enemy.Patrol
 
         private void Update()
         {
-            if (transform.position.x <= LeftWaypoint.transform.position.x)
+            if (LeftWaypoint && transform.position.x <= LeftWaypoint.transform.position.x)
             {
                 Direction = EnemyDirection.Right;
                 UpdateTargetVelocity();
             }
-            else if (transform.position.x >= RightWaypoint.transform.position.x)
+            else if (RightWaypoint && transform.position.x >= RightWaypoint.transform.position.x)
             {
                 Direction = EnemyDirection.Left;
                 UpdateTargetVelocity();
