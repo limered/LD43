@@ -18,12 +18,12 @@ namespace Systems.Player
         {
             component
                 .UpdateAsObservable()
-                .Subscribe(_=>ComputeVelocity(component))
+                .Subscribe(_ => ComputeVelocity(component))
                 .AddTo(component);
 
             component
                 .UpdateAsObservable()
-                .Subscribe(_=> Shoot(component))
+                .Subscribe(_ => Shoot(component))
                 .AddTo(component);
         }
 
@@ -55,19 +55,20 @@ namespace Systems.Player
         {
             var physics = component.GetComponent<OldschoolPhysicComponent>();
             var move = Vector2.zero;
+            var hAxis = Input.GetAxis("Horizontal");
 
-            move.x = Input.GetAxis("Horizontal") * component.MovementMaxSpeed;
-            component.Direction = Input.GetAxis("Horizontal") < 0 ? 
-                PlayerDirection.Left : 
-                Input.GetAxis("Horizontal") > 0 ? 
-                    PlayerDirection.Right : 
-                    component.Direction;
+            move.x = hAxis * component.MovementMaxSpeed;
+            component.Direction = hAxis < 0
+            ? PlayerDirection.Left
+            : hAxis > 0
+                ? PlayerDirection.Right
+                : component.Direction;
 
             if (Input.GetButtonDown("Jump") && physics.IsGrounded.Value)
             {
                 physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, component.JumpTakeofSpeed);
             }
-            else if(Input.GetButtonUp("Jump") && physics.Velocity.Value.y > 0)
+            else if (Input.GetButtonUp("Jump") && physics.Velocity.Value.y > 0)
             {
                 physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, physics.Velocity.Value.y * 0.5f);
             }
@@ -78,7 +79,7 @@ namespace Systems.Player
 
     public enum PlayerDirection
     {
-        Left = 1,
-        Right = 2
+        Left = -1,
+        Right = 1
     }
 }
