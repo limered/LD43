@@ -51,5 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f109fcbfb37e1f4baa110112c9aa9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 1393867652514564, guid: 29a67a09bd52a054c9f4f39c75bc5064,
-    type: 2}
+  PatrolPrefab: {fileID: 0}
+  LeftWaypoint: {fileID: 0}
+  RightWaypoint: {fileID: 0}
+  StartDirection: 0
+  MovementMaxSpeed: 25

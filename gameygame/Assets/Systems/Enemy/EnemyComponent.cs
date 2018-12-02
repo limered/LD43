@@ -5,9 +5,9 @@ namespace Systems.Enemy
 {
     public class EnemyComponent : GameComponent
     {
-        public float MovementMaxSpeed = 4;
-        public bool IsActive;
-        public float ShootingDelay = .5f;
+        public float MovementMaxSpeed { get; set; }
+        public bool IsActive { get; set; }
+        public float ShootingDelay { get; set; }
 
         private Animator _animator;
         public Animator Animator {

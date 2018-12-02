@@ -1,5 +1,6 @@
 ﻿using SystemBase;
 using SystemBase.StateMachineBase;
+using Systems.Enemy.Patrol;
 using Systems.GameState.States;
 using UniRx;
 using UniRx.Triggers;
@@ -10,7 +11,7 @@ using Object = UnityEngine.Object;
 namespace Systems.Enemy
 {
     [GameSystem]
-    public class EnemySystem : GameSystem<EnemySpawnerComponent>
+    public class EnemySystem : GameSystem<PatrolEnemySpawnerComponent>
     {
         public override void Init()
         {
@@ -18,7 +19,7 @@ namespace Systems.Enemy
                 .Subscribe(_ => AddEnemyTriggerArea());
         }
 
-        public override void Register(EnemySpawnerComponent component)
+        public override void Register(PatrolEnemySpawnerComponent component)
         {
             IoC.Game.GameStateContext.AfterStateChange.Where(IsStateChangeFromStartScreenToRunning)
                 .Subscribe(_ => SpawnEnemy(component));
@@ -29,9 +30,15 @@ namespace Systems.Enemy
             return states.Item1.GetType() == typeof(StartScreen) && states.Item2.GetType() == typeof(Running);
         }
 
-        private static void SpawnEnemy(EnemySpawnerComponent component)
+        private static void SpawnEnemy(PatrolEnemySpawnerComponent component)
         {
-            Object.Instantiate(component.EnemyPrefab, component.transform.position, component.transform.localRotation);
+            var patrol = Object.Instantiate(component.PatrolPrefab, component.transform.position,
+                component.transform.localRotation);
+            var patrolComponent = patrol.GetComponent<PatrolEnemyComponent>();
+            patrolComponent.LeftWaypoint = component.LeftWaypoint;
+            patrolComponent.RightWaypoint = component.RightWaypoint;
+            patrolComponent.Direction = component.StartDirection;
+            patrolComponent.MovementMaxSpeed = component.MovementMaxSpeed;
         }
 
         private static void AddEnemyTriggerArea()
