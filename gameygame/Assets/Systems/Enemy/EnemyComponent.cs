@@ -6,10 +6,6 @@ namespace Systems.Enemy
     {
         public float MovementMaxSpeed = 4;
         public bool IsActive;
-
-        public void Update()
-        {
-
-        }
+        public float ShootingDelay = .5f;
     }
 }
