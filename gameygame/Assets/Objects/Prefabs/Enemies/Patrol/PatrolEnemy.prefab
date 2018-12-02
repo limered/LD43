@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 70281579105203346}
   - component: {fileID: 114825708134237210}
   - component: {fileID: 114863137341233914}
+  - component: {fileID: 114791958337936792}
   m_Layer: 14
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &114791958337936792
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1554557305599014}

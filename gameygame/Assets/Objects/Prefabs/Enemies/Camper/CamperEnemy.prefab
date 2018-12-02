@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 70230777675628602}
   - component: {fileID: 114438828597490192}
   - component: {fileID: 114790712528743752}
+  - component: {fileID: 114513609874413782}
   m_Layer: 14
   m_Name: CamperEnemy
   m_TagString: Untagged
@@ -171,6 +172,20 @@ MonoBehaviour:
   MaxHealth: 1
   CurrentHealth:
     value: 1
+--- !u!114 &114513609874413782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a45a9fc1d824d4d9bf0d43aaebe099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reason: 0
+  CrumblePrefab: {fileID: 198422688458289674, guid: b955f5a11ef8d44fb92c3f365eac3a48,
+    type: 2}
 --- !u!114 &114790712528743752
 MonoBehaviour:
   m_ObjectHideFlags: 1
