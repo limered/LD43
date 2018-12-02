@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SystemBase;
+using Systems.Combat.Events;
 using Systems.Physics;
 using UniRx;
 using UniRx.Triggers;
@@ -41,10 +42,17 @@ namespace Systems.Combat
 
         private static void OnCollisionDetected(ProjectileComponent component, RaycastHit2D[] ds)
         {
-            if (ds.Any())
+            if (!ds.Any()) return;
+
+            foreach (var raycastHit2D in ds)
             {
-                Object.Destroy(component.gameObject);
+                MessageBroker.Default.Publish(new ProjectileMsgHit
+                {
+                    HitData = raycastHit2D,
+                    Projectile = component
+                });
             }
+            Object.Destroy(component.gameObject);
         }
 
         private static void UpdateProjectile(ProjectileComponent component)
