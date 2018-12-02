@@ -419,11 +419,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 198257285547585338, guid: b955f5a11ef8d44fb92c3f365eac3a48,
-        type: 2}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b955f5a11ef8d44fb92c3f365eac3a48, type: 2}
   m_IsPrefabAsset: 0
