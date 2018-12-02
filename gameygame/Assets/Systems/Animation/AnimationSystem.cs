@@ -1,5 +1,6 @@
 using System;
 using SystemBase;
+using Systems.Enemy;
 using Systems.GameState.Messages;
 using Systems.GameState.States;
 using Systems.Health;
@@ -15,7 +16,7 @@ using Object = UnityEngine.Object;
 namespace Systems.Animation
 {
     [GameSystem]
-    public class AnimationSystem : GameSystem<GeorgeAnimationComponent, RotationAnimationComponent>
+    public class AnimationSystem : GameSystem<GeorgeAnimationComponent, EnemyAnimationComponent, RotationAnimationComponent>
     {
         public override void Register(GeorgeAnimationComponent component)
         {
@@ -43,6 +44,22 @@ namespace Systems.Animation
                      .Select(x => Time.fixedTime)
                      .Subscribe(x => component.transform.Rotate(Vector3.forward, component.ConstantRotation))
                      .AddTo(component);
+        }
+
+        public override void Register(EnemyAnimationComponent component)
+        {
+            var physics = component.GetComponent<OldschoolPhysicComponent>();
+            var enemy = component.GetComponent<EnemyComponent>();
+            var health = component.GetComponent<HealthComponent>();
+
+            //ANIMATION: Walking
+            physics.TargetVellocity.Subscribe(v => enemy.Animator.SetBool("isWalking", v.x != 0)).AddTo(component);
+            physics.Velocity.Subscribe(v => enemy.Animator.SetFloat("walkspeed", Mathf.Abs(v.x / enemy.MovementMaxSpeed))).AddTo(component);
+
+            //ANIMATION: enemy got hit 
+            MessageBroker.Default.Receive<HealthActSubtract>()
+                .Subscribe(x => enemy.Animator.SetTrigger("gotHit"))
+                .AddTo(component);
         }
     }
 }

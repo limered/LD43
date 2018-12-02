@@ -1,4 +1,5 @@
 ﻿using SystemBase;
+using UnityEngine;
 
 namespace Systems.Enemy
 {
@@ -7,5 +8,15 @@ namespace Systems.Enemy
         public float MovementMaxSpeed = 4;
         public bool IsActive;
         public float ShootingDelay = .5f;
+
+        private Animator _animator;
+        public Animator Animator {
+            get{
+                if(_animator == null) {
+                    _animator = GetComponentInChildren<Animator>();
+                }
+                return _animator;
+            }
+        }
     }
 }
