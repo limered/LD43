@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 6a24097660f7279488e3b3fe817afffe
+guid: 26b36ea368af0ca42ab97beef3cbfe24
 TextureImporter:
   fileIDToRecycleName:
-    21300000: snowflake_0
-    21300002: snowflake_1
+    21300000: George01_0
+    21300002: George01_1
+    21300004: George01_2
+    21300006: George01_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -97,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snowflake_0
+      name: George01_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 15
-        width: 68
-        height: 101
+        x: 66
+        y: 60
+        width: 346
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,19 +113,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f614cb9c5e3db8649bd10b2bd8ca01ff
+      spriteID: d5c18750cb9addf48bf085aa39484196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: snowflake_1
+      name: George01_1
       rect:
         serializedVersion: 2
-        x: 94
-        y: 14
-        width: 68
-        height: 115
+        x: 454
+        y: 60
+        width: 344
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,7 +133,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df5fa11f3a3220b4ab7099884bd121e9
+      spriteID: 67bcee306cb6dcd4ba4231afdf5dbad9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: George01_2
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 55
+        width: 204
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7edbe98d52c6042a10f3ec2a9ae7dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: George01_3
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 53
+        width: 161
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7dbdf2ec21f28f4aaaa969d414c3151
       vertices: []
       indices: 
       edges: []
@@ -139,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: eb0c078c62bea504a8e5553f19d2fd71
+    spriteID: fb89f79791679b54aa13a61808922129
     vertices: []
     indices: 
     edges: []

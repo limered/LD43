@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: a59cc6fa0ed0fe24c9a35b16be1529b5
+guid: 685caeccf22033646bc108db2793aeef
 TextureImporter:
   fileIDToRecycleName:
-    21300000: george_0
-    21300002: george_1
+    21300000: Decoration01_0
+    21300002: Decoration01_1
+    21300004: Decoration01_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -97,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: george_0
+      name: Decoration01_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 15
-        width: 83
-        height: 118
+        x: 39
+        y: 307
+        width: 275
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,19 +112,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62738f68b2c6c7941b3c46e1f89ce701
+      spriteID: a44976d90d3117648b9484dddd9f5648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: george_1
+      name: Decoration01_1
       rect:
         serializedVersion: 2
-        x: 108
-        y: 15
-        width: 84
-        height: 118
+        x: 388
+        y: 39
+        width: 528
+        height: 526
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,7 +132,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f57234e110cd0b41850901d32de1759
+      spriteID: 23882fc48afcf5c4eaf84745d8678aac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration01_2
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 33
+        width: 464
+        height: 1409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3417e1d1c020ad4ba3edd464022a40f
       vertices: []
       indices: 
       edges: []
@@ -139,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ead08cea70498c24c83b1200ef73a836
+    spriteID: f1ddb9430f734e1428063d3f32fd31e1
     vertices: []
     indices: 
     edges: []

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 5f3bdb1b9f3151c4e95f75f4ee01a533
+guid: de33b6035d2410c4da3941b2bf2d75e8
 TextureImporter:
   fileIDToRecycleName:
-    21300000: decoration_0
-    21300002: decoration_1
-    21300004: decoration_2
+    21300000: Girlande01_0
+    21300002: Girlande01_1
+    21300004: Girlande01_2
+    21300006: Girlande01_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -98,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: decoration_0
+      name: Girlande01_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 74
-        width: 67
-        height: 63
+        x: 115
+        y: 890
+        width: 2924
+        height: 530
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,19 +113,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 013c2ac57a9bff74188121dc78f5512d
+      spriteID: 929f982c382008d40b972c24cf08d1b5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_1
+      name: Girlande01_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 9
-        width: 127
-        height: 127
+        x: 3204
+        y: 889
+        width: 2922
+        height: 531
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,19 +133,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16d9b5619f1a9a048b57ed052344eb74
+      spriteID: 70ebccc7d0e4ead45903061634d24006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_2
+      name: Girlande01_2
       rect:
         serializedVersion: 2
-        x: 250
-        y: 8
-        width: 112
-        height: 339
+        x: 115
+        y: 167
+        width: 2924
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,7 +153,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e91e77826ce724f47a0fe532b8ec86ff
+      spriteID: 5184a90e301afc74eac830c0b797c2c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girlande01_3
+      rect:
+        serializedVersion: 2
+        x: 3204
+        y: 167
+        width: 2923
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd35121dc87d5348a951496d4a9940a
       vertices: []
       indices: 
       edges: []
@@ -160,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9efdb7ff8e678d749b9d5e468b9deea2
+    spriteID: 1ec862d130b0d604ca4c6ca946c00974
     vertices: []
     indices: 
     edges: []

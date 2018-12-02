@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: aff386d3f37677c44a7da6b696715bc0
+guid: 871beb6a595c8e44b81c67a3cb498fda
 TextureImporter:
   fileIDToRecycleName:
-    21300000: girlande_0
-    21300002: girlande_1
-    21300004: girlande_2
-    21300006: girlande_3
+    21300000: Trees01_0
+    21300002: Trees01_1
+    21300004: Trees01_2
+    21300006: Trees01_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -99,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: girlande_0
+      name: Trees01_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 214
-        width: 701
-        height: 126
+        x: 165
+        y: 142
+        width: 1219
+        height: 1411
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,19 +113,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c68a915cee8a01345ad73f44cf89f6a1
+      spriteID: cd9835ba9049a874fb9609f1d6b3779d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girlande_1
+      name: Trees01_1
       rect:
         serializedVersion: 2
-        x: 769
-        y: 214
-        width: 701
-        height: 126
+        x: 1553
+        y: 109
+        width: 1304
+        height: 1461
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +133,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 535d2ebf910ccd7439fc12cca5a2ec24
+      spriteID: 8fcb8a320dc7b074f8d464c8816f6119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girlande_2
+      name: Trees01_2
       rect:
         serializedVersion: 2
-        x: 28
-        y: 41
-        width: 701
-        height: 126
+        x: 3040
+        y: 118
+        width: 1155
+        height: 1460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,19 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9f995d66b551294e8b58a1b12a2d9ae
+      spriteID: 85f2a46cd2bf6f945a3bc4de5372c1d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girlande_3
+      name: Trees01_3
       rect:
         serializedVersion: 2
-        x: 769
-        y: 41
-        width: 701
-        height: 126
+        x: 4381
+        y: 123
+        width: 1155
+        height: 1458
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c5b18896dda5354fb865ddd7fad0093
+      spriteID: 60611c5c50b559d4ea4f955516cd1e4c
       vertices: []
       indices: 
       edges: []
@@ -181,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e33495f9708a9d246812a62afd4ce635
+    spriteID: 09771a0dca67e554aab9f1b330516079
     vertices: []
     indices: 
     edges: []

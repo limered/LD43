@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: 3b8e33734903ab54bb2e22709b7abdab
+guid: c40bf94162ee9c540a5b5c9fa8a7fd8e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: windows_0
-    21300002: windows_1
-    21300004: windows_2
-    21300006: windows_3
-    21300008: windows_4
-    21300010: windows_5
-    21300012: windows_6
-    21300014: windows_7
-    21300016: windows_8
-    21300018: windows_9
-    21300020: windows_10
+    21300000: Walking_George01_0
+    21300002: Walking_George01_1
+    21300004: Walking_George01_2
+    21300006: Walking_George01_3
+    21300008: Walking_George01_4
+    21300010: Walking_George01_5
+    21300012: Walking_George01_6
+    21300014: Walking_George01_7
+    21300016: Walking_George01_8
+    21300018: Walking_George01_9
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -106,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: windows_0
+      name: Walking_George01_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 155
-        width: 81
-        height: 103
+        x: 36
+        y: 73
+        width: 172
+        height: 486
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86138616aa4568c4787cc5d8ca1d49db
+      spriteID: aef3525bb81ec034eb457666de08e309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_1
+      name: Walking_George01_1
       rect:
         serializedVersion: 2
-        x: 121
-        y: 155
-        width: 80
-        height: 103
+        x: 236
+        y: 74
+        width: 172
+        height: 485
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4b9a2f5302e01644b6899c0425e3e49
+      spriteID: 59558a1d36ef1284d8e75a1aeceb9cb6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_2
+      name: Walking_George01_2
       rect:
         serializedVersion: 2
-        x: 216
-        y: 155
-        width: 81
-        height: 102
+        x: 446
+        y: 74
+        width: 158
+        height: 488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,19 +159,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f32d454db3f276a47a5ed697cff54df9
+      spriteID: 367ab457982fdb54e80cd970c15847b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_3
+      name: Walking_George01_3
       rect:
         serializedVersion: 2
-        x: 311
-        y: 155
-        width: 81
-        height: 103
+        x: 631
+        y: 73
+        width: 164
+        height: 485
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 268dd76c75770e24d9ded7a5c342cbf4
+      spriteID: 52b7d0569fecad24fa2bea1912dd0787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_4
+      name: Walking_George01_4
       rect:
         serializedVersion: 2
-        x: 406
-        y: 155
-        width: 81
-        height: 103
+        x: 806
+        y: 73
+        width: 177
+        height: 489
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,19 +199,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6534feb0e0be840bad18a33474126a
+      spriteID: 466da4bc664e8344c857517aab824b53
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_5
+      name: Walking_George01_5
       rect:
         serializedVersion: 2
-        x: 503
-        y: 135
-        width: 90
-        height: 121
+        x: 1002
+        y: 75
+        width: 168
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,19 +219,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecd2e9b3251667341bde6dc77840a361
+      spriteID: 040b8e15f76bd6044916125376117c32
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_6
+      name: Walking_George01_6
       rect:
         serializedVersion: 2
-        x: 26
-        y: 34
-        width: 80
-        height: 102
+        x: 1198
+        y: 75
+        width: 160
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,19 +239,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de9e7e7e3cbb3e2468273e8837afc881
+      spriteID: 94aafaf7887b90349a9bab28c6b60d35
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_7
+      name: Walking_George01_7
       rect:
         serializedVersion: 2
-        x: 121
-        y: 34
-        width: 80
-        height: 103
+        x: 1379
+        y: 75
+        width: 159
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,19 +259,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac50febbbc8e0a438630ddd20b908ae
+      spriteID: a0e1677e4f86f1945b4346b639551129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_8
+      name: Walking_George01_8
       rect:
         serializedVersion: 2
-        x: 216
-        y: 34
-        width: 80
-        height: 103
+        x: 1584
+        y: 111
+        width: 157
+        height: 455
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,19 +279,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851d8f951357a6649ad21d2b43141ad0
+      spriteID: 30eccdceb2734224d8d8dfc9ebce2a68
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windows_9
+      name: Walking_George01_9
       rect:
         serializedVersion: 2
-        x: 311
-        y: 34
-        width: 81
-        height: 102
+        x: 1764
+        y: 114
+        width: 169
+        height: 452
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,27 +299,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f707d24d1142e4f968d496add63826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: windows_10
-      rect:
-        serializedVersion: 2
-        x: 406
-        y: 34
-        width: 81
-        height: 103
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f883851f5e403b4e93f9ff0055b214e
+      spriteID: 2064eafdef9dbbb46bcded9d6a80528c
       vertices: []
       indices: 
       edges: []
@@ -328,7 +307,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 098b3fdcbd24b1f4a989ffa101e364f4
+    spriteID: 8940fcc535dadc747957ea726e170f24
     vertices: []
     indices: 
     edges: []
