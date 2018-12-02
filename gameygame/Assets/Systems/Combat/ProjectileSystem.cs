@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using SystemBase;
+using Systems.Combat.Actions;
 using Systems.Combat.Events;
 using Systems.Physics;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using Utils.Math;
+using Object = UnityEngine.Object;
 
 namespace Systems.Combat
 {
@@ -14,17 +16,19 @@ namespace Systems.Combat
     {
         public override void Register(ShooterComponent component)
         {
-            component.ShootCommand
-                .Subscribe(vector2 => SpawnProjectile(component, vector2))
+            MessageBroker.Default.Receive<CombatActShoot>()
+                .Where(shoot => shoot.Shooter.gameObject == component.gameObject)
+                .Subscribe(SpawnProjectile)
                 .AddTo(component);
         }
 
-        private static void SpawnProjectile(ShooterComponent component, Vector2 direction)
+        private static void SpawnProjectile(CombatActShoot shootMsg)
         {
+            var component = shootMsg.Shooter.GetComponent<ShooterComponent>();
             var projectile = Object.Instantiate(component.ProjectilePrefab, component.transform.position,
                 Quaternion.identity);
             var comp = projectile.GetComponent<ProjectileComponent>();
-            comp.Direction = direction;
+            comp.Direction = shootMsg.Direction;
             comp.StartPosition = component.transform.position;
         }
 
@@ -46,7 +50,7 @@ namespace Systems.Combat
 
             foreach (var raycastHit2D in ds)
             {
-                MessageBroker.Default.Publish(new ProjectileMsgHit
+                MessageBroker.Default.Publish(new CombatEvtProjectileHit
                 {
                     HitData = raycastHit2D,
                     Projectile = component
