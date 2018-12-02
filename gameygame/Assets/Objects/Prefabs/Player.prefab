@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114896782501866798}
   - component: {fileID: 70802517575160278}
   - component: {fileID: 114841259828027498}
+  - component: {fileID: 114050459364729016}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -80,6 +81,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.16, y: 0.16}
   m_Direction: 0
+--- !u!114 &114050459364729016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1187199741639650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0869b3dd4d4aa8b6fbc3ffb31f341b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartHealth: 100
+  MaxHealth: 100
+  CurrentHealth:
+    value: 0
 --- !u!114 &114080306214646084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,6 +110,7 @@ MonoBehaviour:
   JumpTakeofSpeed: 5
   MovementMaxSpeed: 2
   Direction: 2
+  HealthLostPerProjectile: 5
 --- !u!114 &114841259828027498
 MonoBehaviour:
   m_ObjectHideFlags: 1
