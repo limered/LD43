@@ -1,8 +1,11 @@
 ﻿using System;
 using SystemBase;
+using Systems.Combat.Events;
 using Systems.GameState.Messages;
 using Systems.GameState.States;
 using Systems.Health;
+using Systems.Health.Actions;
+using Systems.Health.Events;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -39,6 +42,24 @@ namespace Systems.Player
 
             component.UpdateAsObservable()
                 .Subscribe(unit => { UpdatePlayerSize(component); })
+                .AddTo(component);
+
+            MessageBroker.Default.Receive<CombatEvtProjectileHit>()
+                .Where(hit => hit.HitData.rigidbody.gameObject == component.gameObject)
+                .Subscribe(hit =>
+                {
+                    MessageBroker.Default.Publish(new HealthActSubtract
+                    {
+                        CanKill = true,
+                        Target = component.gameObject,
+                        Amount = hit.Projectile.Damage
+                    });
+                })
+                .AddTo(component);
+
+            MessageBroker.Default.Receive<HealthEvtDied>()
+                .Where(died => died.Target == component.gameObject)
+                .Subscribe(died => { Object.Destroy(component.gameObject); })
                 .AddTo(component);
         }
 

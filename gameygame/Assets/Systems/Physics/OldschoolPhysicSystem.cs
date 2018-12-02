@@ -53,7 +53,12 @@ namespace Systems.GameState.Physics
 
             var hitBuffer = new RaycastHit2D[16];
             var collisionCount = rb2D.Cast(movement, component.ContactFilter, hitBuffer, distance + CollisionShell);
-            var hitBufferList = hitBuffer.Take(collisionCount);
+            var hitBufferList = hitBuffer.Take(collisionCount).ToArray();
+
+            if (hitBufferList.Any())
+            {
+                component.CollisionDetected.Execute(hitBufferList);
+            }
 
             foreach (var hit in hitBufferList)
             {
