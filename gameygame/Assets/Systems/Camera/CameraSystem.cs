@@ -9,7 +9,7 @@ namespace Systems.Camera
     [GameSystem(typeof(PlayerSystem))]
     public class CameraSystem : GameSystem<CameraComponent, PlayerComponent>
     {
-        private ReactiveProperty<PlayerComponent> _player = new ReactiveProperty<PlayerComponent>(null);
+        private readonly ReactiveProperty<PlayerComponent> _player = new ReactiveProperty<PlayerComponent>(null);
 
         public override void Register(CameraComponent component)
         {
@@ -34,13 +34,8 @@ namespace Systems.Camera
         {
             var playerPosition = component.Player.transform.position;
             var camPosition = component.transform.position;
-            var distance = playerPosition - camPosition;
-
-            //var newX = CalculateNewPosition(component.FreezeX, distance.x, camPosition.x, component.ThresholdDistance,
-            //    component.AnimationModifier);
 
             var newX = camPosition.x;
-
             if (component.CurrentCamModus == CamModus.Left)
             {
                 var triggerPoint = camPosition.x + component.TriggerDIstance;
@@ -77,14 +72,6 @@ namespace Systems.Camera
             component.transform.position = new Vector3(newX, 
                 component.transform.position.y, 
                 component.transform.position.z);
-        }
-
-        private static float CalculateNewPosition(bool calculationFrozen, float distance, float posiiton, float threshold, float animationDamping)
-        {
-            if (calculationFrozen || Mathf.Abs(distance) < threshold) return posiiton;
-            return distance < 0
-                ? posiiton + (distance + threshold) * animationDamping
-                : posiiton + (distance - threshold) * animationDamping;
         }
     }
 
