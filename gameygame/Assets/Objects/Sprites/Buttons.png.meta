@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 9e82be87ca2bf6d4aaadf81fdffd5dcf
+guid: 315e99d28f1492642b7f0387fbe3f8a9
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Button_0
+    21300000: Buttons_0
+    21300002: Buttons_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -96,11 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_0
+      name: Buttons_0
       rect:
         serializedVersion: 2
         x: 57
-        y: 51
+        y: 614
         width: 1129
         height: 305
       alignment: 0
@@ -110,7 +111,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f21e7f8780c11cc4f81822f5a52be076
+      spriteID: bea5977efa636d945b8f2be4acbb1fd0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 201
+        width: 1129
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 326d7e077a8e3914ea050b023d0f1941
       vertices: []
       indices: 
       edges: []
@@ -118,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9ea41271847e8fc499b58283b5fdedf4
+    spriteID: 0d5c269b205dbcb478a963e175659ccf
     vertices: []
     indices: 
     edges: []
