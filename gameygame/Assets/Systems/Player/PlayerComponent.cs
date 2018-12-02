@@ -1,5 +1,6 @@
 ﻿using SystemBase;
 using Systems.Physics;
+using UniRx;
 using UnityEngine;
 
 namespace Systems.Player
@@ -12,5 +13,9 @@ namespace Systems.Player
         public PlayerDirection Direction = PlayerDirection.Right;
 
         public float HealthLostPerProjectile;
+
+        public float FullSize;
+        public float SmallSize;
+        public FloatReactiveProperty CurrentSize;
     }
 }

@@ -110,7 +110,11 @@ MonoBehaviour:
   JumpTakeofSpeed: 5
   MovementMaxSpeed: 2
   Direction: 2
-  HealthLostPerProjectile: 5
+  HealthLostPerProjectile: 2
+  FullSize: 3
+  SmallSize: 1
+  CurrentSize:
+    value: 3
 --- !u!114 &114841259828027498
 MonoBehaviour:
   m_ObjectHideFlags: 1
