@@ -76,7 +76,7 @@ namespace Systems.Player
         private void UpdatePlayerSize(PlayerComponent component)
         {
             component.gameObject.transform.localScale = new Vector3(
-                component.CurrentSize.Value * (float)component.Direction,
+                component.CurrentSize.Value,
                 component.CurrentSize.Value, 
                 1);
         }

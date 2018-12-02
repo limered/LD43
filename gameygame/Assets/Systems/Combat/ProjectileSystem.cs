@@ -55,6 +55,7 @@ namespace Systems.Combat
                     HitData = raycastHit2D,
                     Projectile = component
                 });
+            Debug.Log(raycastHit2D.transform.gameObject.name);
             }
             Object.Destroy(component.gameObject);
         }

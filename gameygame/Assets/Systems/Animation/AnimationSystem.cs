@@ -23,10 +23,18 @@ namespace Systems.Animation
             var physics = component.GetComponent<OldschoolPhysicComponent>();
             var player = component.GetComponent<PlayerComponent>();
             var health = component.GetComponent<HealthComponent>();
+            var rotateThis = component.WhatShouldRotateWithDirection ?? player.gameObject.transform;
 
             //ANIMATION: Walking
             physics.TargetVellocity.Subscribe(v => player.Animator.SetBool("isWalking", v.x != 0)).AddTo(component);
-            physics.Velocity.Subscribe(v => player.Animator.SetFloat("walkspeed", Mathf.Abs(v.x / player.MovementMaxSpeed))).AddTo(component);
+            physics.Velocity.Subscribe(v =>
+            {
+                player.Animator.SetFloat("walkspeed", Mathf.Abs(v.x));
+                rotateThis.localScale = new Vector3(
+                    Mathf.Abs(rotateThis.localScale.x) * (float)player.Direction,
+                    rotateThis.localScale.y,
+                    1);
+            }).AddTo(component);
 
             //ANIMATION: player got hit 
             MessageBroker.Default.Receive<HealthActSubtract>()
@@ -35,31 +43,43 @@ namespace Systems.Animation
                 .AddTo(component);
         }
 
-        public override void Register(RotationAnimationComponent component)
-        {
-            if(component.StartWithRandomRotation)
-                component.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(0, 360));
-
-            component.FixedUpdateAsObservable()
-                     .Select(x => Time.fixedTime)
-                     .Subscribe(x => component.transform.Rotate(Vector3.forward, component.ConstantRotation))
-                     .AddTo(component);
-        }
-
         public override void Register(EnemyAnimationComponent component)
         {
             var physics = component.GetComponent<OldschoolPhysicComponent>();
             var animator = component.GetComponentInChildren<Animator>();
-            var health = component.GetComponent<HealthComponent>();
+            var enemy = component.GetComponent<Systems.Enemy.Patrol.PatrolEnemyComponent>();
+            var rotateThis = component.WhatShouldRotateWithDirection ?? enemy.gameObject.transform;
 
             //ANIMATION: Walking
-            physics.TargetVellocity.Subscribe(v => animator.SetBool("isWalking", v.x != 0)).AddTo(component);
-            physics.Velocity.Subscribe(v => animator.SetFloat("walkspeed", Mathf.Abs(v.x))).AddTo(component);
+            physics.TargetVellocity.Subscribe(v => enemy.Animator.SetBool("isWalking", v.x != 0)).AddTo(component);
+            physics.Velocity.Subscribe(v =>
+            {
+                enemy.Animator.SetFloat("walkspeed", Mathf.Abs(v.x / enemy.MovementMaxSpeed));
+                rotateThis.localScale = new Vector3(
+                    Mathf.Abs(rotateThis.localScale.x) * (float)enemy.Direction,
+                    rotateThis.localScale.y, 
+                    1);
+            }).AddTo(component);
 
             //ANIMATION: enemy got hit 
             MessageBroker.Default.Receive<HealthActSubtract>()
                 .Subscribe(x => animator.SetTrigger("gotHit"))
                 .AddTo(component);
         }
+
+        public override void Register(RotationAnimationComponent component)
+        {
+            if (component.StartWithRandomRotation)
+                component.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(0, 360));
+
+            component.FixedUpdateAsObservable()
+                     .Select(x => Time.fixedTime)
+                     .Subscribe(x =>
+                     {
+                         component.transform.Rotate(Vector3.forward, component.ConstantRotation);
+                     })
+                     .AddTo(component);
+        }
+
     }
 }
