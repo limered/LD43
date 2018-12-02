@@ -49,16 +49,16 @@ namespace Systems.Animation
         public override void Register(EnemyAnimationComponent component)
         {
             var physics = component.GetComponent<OldschoolPhysicComponent>();
-            var enemy = component.GetComponent<EnemyComponent>();
+            var animator = component.GetComponentInChildren<Animator>();
             var health = component.GetComponent<HealthComponent>();
 
             //ANIMATION: Walking
-            physics.TargetVellocity.Subscribe(v => enemy.Animator.SetBool("isWalking", v.x != 0)).AddTo(component);
-            physics.Velocity.Subscribe(v => enemy.Animator.SetFloat("walkspeed", Mathf.Abs(v.x / enemy.MovementMaxSpeed))).AddTo(component);
+            physics.TargetVellocity.Subscribe(v => animator.SetBool("isWalking", v.x != 0)).AddTo(component);
+            physics.Velocity.Subscribe(v => animator.SetFloat("walkspeed", Mathf.Abs(v.x))).AddTo(component);
 
             //ANIMATION: enemy got hit 
             MessageBroker.Default.Receive<HealthActSubtract>()
-                .Subscribe(x => enemy.Animator.SetTrigger("gotHit"))
+                .Subscribe(x => animator.SetTrigger("gotHit"))
                 .AddTo(component);
         }
     }
