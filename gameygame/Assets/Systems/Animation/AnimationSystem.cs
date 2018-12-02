@@ -3,6 +3,7 @@ using SystemBase;
 using Systems.GameState.Messages;
 using Systems.GameState.States;
 using Systems.Health;
+using Systems.Health.Actions;
 using Systems.Physics;
 using Systems.Player;
 using UniRx;
@@ -24,14 +25,13 @@ namespace Systems.Animation
 
             //ANIMATION: Walking
             physics.TargetVellocity.Subscribe(v => player.Animator.SetBool("isWalking", v.x != 0)).AddTo(component);
+            physics.Velocity.Subscribe(v => player.Animator.SetFloat("walkspeed", Mathf.Abs(v.x / player.MovementMaxSpeed))).AddTo(component);
 
             //ANIMATION: player got hit 
-            health.CurrentHealth.Pairwise()
-                                .Where(x => x.Previous > x.Current)
-                                .Subscribe(x => player.Animator.SetTrigger("gotHit"))
-                                .AddTo(component);
-
-
+            MessageBroker.Default.Receive<HealthActSubtract>()
+                .Where(x => x.CanKill)
+                .Subscribe(x => player.Animator.SetTrigger("gotHit"))
+                .AddTo(component);
         }
     }
 }

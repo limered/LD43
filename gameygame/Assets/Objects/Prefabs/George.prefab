@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpTakeofSpeed: 5
-  MovementMaxSpeed: 2
+  MovementMaxSpeed: 1
   Direction: 2
   HealthLostPerProjectile: 2
   FullSize: 1
