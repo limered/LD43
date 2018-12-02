@@ -1,6 +1,9 @@
 ﻿using SystemBase;
 using Systems.Combat;
+using Systems.Combat.Actions;
 using Systems.GameState.Physics;
+using Systems.Health;
+using Systems.Health.Actions;
 using Systems.Physics;
 using UniRx;
 using UniRx.Triggers;
@@ -26,13 +29,26 @@ namespace Systems.Player
 
         private static void Shoot(PlayerComponent component)
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                var shootDirection = component.Direction == PlayerDirection.Left ? Vector2.left : Vector2.right;
-                component.GetComponent<ShooterComponent>()
-                    .ShootCommand
-                    .Execute(shootDirection);
-            }
+            if (!Input.GetButtonDown("Fire1")) return;
+
+            if (component.GetComponent<HealthComponent>().CurrentHealth.Value <= 1) return;
+
+            var shootDirection = component.Direction == PlayerDirection.Left ? Vector2.left : Vector2.right;
+
+            MessageBroker.Default
+                .Publish(new CombatActShoot
+                {
+                    Direction = shootDirection,
+                    Shooter = component.gameObject
+                });
+
+            MessageBroker.Default
+                .Publish(new HealthActSubtract
+                {
+                    CanKill = false,
+                    Amount = component.HealthLostPerProjectile,
+                    Target = component.gameObject
+                });
         }
 
         private static void ComputeVelocity(PlayerComponent component)
