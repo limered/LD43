@@ -1,6 +1,7 @@
 ﻿using System;
 using SystemBase;
 using Systems.Combat.Events;
+using Systems.GameState.Messages;
 using Systems.GameState.States;
 using Systems.Health;
 using Systems.Health.Actions;
@@ -62,6 +63,21 @@ namespace Systems.Player
                     dies[UnityEngine.Random.Range(0, dies.Length)].Play();
 
                     Object.Destroy(component.gameObject);
+
+                    MessageBroker.Default.Publish(new GameMsgEnd());
+                    MessageBroker.Default.Publish(new GameMsgRestart());
+                })
+                .AddTo(component);
+
+            component.UpdateAsObservable()
+                .Where(unit => component.transform.position.y < -5)
+                .Subscribe(unit => {
+                    MessageBroker.Default.Publish(new HealthActSubtract
+                    {
+                        CanKill = true,
+                        Target = component.gameObject,
+                        Amount = 200
+                    });
                 })
                 .AddTo(component);
         }
