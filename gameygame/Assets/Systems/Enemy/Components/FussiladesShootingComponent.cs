@@ -1,6 +1,6 @@
 ﻿using SystemBase;
 
-namespace Systems.Enemy
+namespace Systems.Enemy.Components
 {
     public class FussiladesShootingComponent : GameComponent
     {

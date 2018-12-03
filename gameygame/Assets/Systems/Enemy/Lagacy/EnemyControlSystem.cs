@@ -8,7 +8,7 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
-namespace Systems.Enemy
+namespace Systems.Enemy.Lagacy
 {
     [GameSystem(typeof(PlayerSystem), typeof(OldschoolPhysicSystem), typeof(ProjectileSystem), typeof(EnemySystem))]
     public class EnemyControlSystem : GameSystem<EnemyComponent, PlayerComponent>

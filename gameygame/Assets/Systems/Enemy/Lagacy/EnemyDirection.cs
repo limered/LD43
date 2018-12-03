@@ -1,4 +1,4 @@
-﻿namespace Systems.Enemy
+﻿namespace Systems.Enemy.Lagacy
 {
     public enum EnemyDirection
     {

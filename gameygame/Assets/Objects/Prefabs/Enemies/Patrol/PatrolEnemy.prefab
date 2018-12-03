@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 114493963748510756}
   - component: {fileID: 114576118818196302}
   - component: {fileID: 114847181223615902}
+  - component: {fileID: 114514565733370176}
+  - component: {fileID: 114648823443251948}
   m_Layer: 14
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -175,6 +177,17 @@ MonoBehaviour:
   MaxHealth: 1
   CurrentHealth:
     value: 1
+--- !u!114 &114514565733370176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554557305599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db78d30acfd7134c9246a88344f46ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114576118818196302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,6 +200,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageToPlayer: 10
+--- !u!114 &114648823443251948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554557305599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a45a9fc1d824d4d9bf0d43aaebe099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reason: 0
+  CrumblePrefab: {fileID: 198422688458289674, guid: b955f5a11ef8d44fb92c3f365eac3a48,
+    type: 2}
 --- !u!114 &114847181223615902
 MonoBehaviour:
   m_ObjectHideFlags: 1

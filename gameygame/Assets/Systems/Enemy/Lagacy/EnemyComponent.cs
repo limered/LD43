@@ -1,7 +1,7 @@
 ﻿using SystemBase;
 using UnityEngine;
 
-namespace Systems.Enemy
+namespace Systems.Enemy.Lagacy
 {
     public class EnemyComponent : GameComponent
     {
