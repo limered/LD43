@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 114202760620482782}
   - component: {fileID: 114226613675765914}
   - component: {fileID: 114498396602094014}
+  - component: {fileID: 114831498152766186}
   m_Layer: 14
   m_Name: CamperEnemy
   m_TagString: Untagged
@@ -227,6 +228,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageToPlayer: 10
+--- !u!114 &114831498152766186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9947377f04fc425409661504c794d067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114836135622238288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d9b3a4345a4e0b80ceb12d62e8c059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookDirection: 0
+  LookDirection: -1
 --- !u!212 &212094107772655726
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -273,7 +285,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6302dc89beb55234281cdcc09db97887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

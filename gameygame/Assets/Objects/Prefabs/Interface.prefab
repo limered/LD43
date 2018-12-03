@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 114674751667234484}
   - component: {fileID: 114206074783548062}
   - component: {fileID: 114717883590959930}
+  - component: {fileID: 114753995919577952}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -232,7 +233,7 @@ GameObject:
   - component: {fileID: 222640314840978216}
   - component: {fileID: 114647086752566438}
   m_Layer: 5
-  m_Name: tyrcise
+  m_Name: turquoise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +250,7 @@ GameObject:
   - component: {fileID: 222163215626902284}
   - component: {fileID: 114364420726369490}
   m_Layer: 5
-  m_Name: red
+  m_Name: green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,6 +762,23 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &114753995919577952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464276749961070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846f64a5f383b4a4fbf4f4c760256955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Presents:
+  - {fileID: 1983331212304972}
+  - {fileID: 1568541379292588}
+  - {fileID: 1921907255305502}
+  - {fileID: 1964357985164016}
+  - {fileID: 1505818582615424}
 --- !u!114 &114790021098520358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -883,7 +901,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1381556603983108}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
@@ -903,7 +921,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464276749961070}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
