@@ -16,6 +16,7 @@ namespace Systems.GameState.States
             MessageBroker.Default.Receive<GameMsgPause>()
                 .Subscribe(pause => context.GoToState(new Paused()))
                 .AddTo(this);
+
         }
     }
 }

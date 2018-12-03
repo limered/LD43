@@ -1,7 +1,6 @@
 ﻿using System;
 using SystemBase;
 using Systems.Combat.Events;
-using Systems.GameState.Messages;
 using Systems.GameState.States;
 using Systems.Health;
 using Systems.Health.Actions;
@@ -22,10 +21,8 @@ namespace Systems.Player
         {
             IoC.Game.GameStateContext
                 .AfterStateChange
-                .Where(states => states.Item1.GetType() == typeof(StartScreen) && states.Item2.GetType() == typeof(Running))
+                .Where(states => states.Item2.GetType() == typeof(Running))
                 .Subscribe(state => SpawnPlayer(component));
-
-            MessageBroker.Default.Publish(new GameMsgStart());
         }
 
         private static void SpawnPlayer(PlayerSpawnerComponent component)
