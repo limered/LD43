@@ -3,16 +3,15 @@
 namespace Systems.GameStatistics
 {
     [GameSystem]
-    public class GameProgressSystem : GameSystem<CollectibleComponent>
+    public class GameProgressSystem : GameSystem<StatsComponent>
     {
-        public override void Register(CollectibleComponent component)
+        public override void Register(StatsComponent component)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 
-    public class CollectibleComponent : GameComponent
+    public class StatsComponent : GameComponent
     {
-        public string UniqueId;
     }
 }
