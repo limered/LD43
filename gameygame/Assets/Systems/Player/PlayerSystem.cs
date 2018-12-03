@@ -45,8 +45,11 @@ namespace Systems.Player
 
             MessageBroker.Default.Receive<CombatEvtProjectileHit>()
                 .Where(hit => hit.HitData.rigidbody.gameObject == component.gameObject)
+                .Where(hit => component.LastHitTimestamp < Time.realtimeSinceStartup - component.TimBetweenHits)
                 .Subscribe(hit =>
                 {
+                    component.LastHitTimestamp = Time.realtimeSinceStartup;
+
                     MessageBroker.Default.Publish(new HealthActSubtract
                     {
                         CanKill = true,

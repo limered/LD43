@@ -9,6 +9,7 @@ namespace Systems.Player
     [RequireComponent(typeof(OldschoolPhysicComponent))]
     public class PlayerComponent : GameComponent
     {
+        public float TimBetweenHits = 0.1f;
         public float JumpTakeofSpeed = 5;
         public float MovementMaxSpeed = 2;
         public UsefulEnums.HorizontalDirection Direction = UsefulEnums.HorizontalDirection.Right;
@@ -28,5 +29,7 @@ namespace Systems.Player
                 return _animator;
             }
         }
+
+        public float LastHitTimestamp { get; set; }
     }
 }
