@@ -6,6 +6,7 @@ using SystemBase.StateMachineBase;
 using Systems.GameState.Messages;
 using Systems.GameState.States;
 using UniRx;
+using UnityEngine.SceneManagement;
 using Utils;
 
 namespace Systems
@@ -13,6 +14,14 @@ namespace Systems
     public class Game : GameBase
     {
         public readonly StateContext<Game> GameStateContext = new StateContext<Game>();
+
+        public void StartGame()
+        {
+            SceneManager.LoadScene("Main");
+            Observable.Timer(TimeSpan.FromSeconds(1))
+                .Subscribe(l => MessageBroker.Default.Publish(new Running()));
+        }
+
         private void Awake()
         {
             IoC.RegisterSingleton(this);

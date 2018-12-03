@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySoundMessage : MonoBehaviour {
+public class PlaySoundMessage {
     private readonly string _name;
     private readonly string _tag;
 
