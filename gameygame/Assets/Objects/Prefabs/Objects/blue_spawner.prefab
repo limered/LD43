@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba746a534e40a792e4397b5e7de76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemToSpawn: {fileID: 1756367454613876, guid: 00fa941183fe8714ab745c2cfc5fe666,
+  ItemToSpawn: {fileID: 1285913535092922, guid: 68c72d110b018234d893dc5b351dc625,
     type: 2}
