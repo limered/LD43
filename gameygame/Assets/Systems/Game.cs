@@ -18,24 +18,12 @@ namespace Systems
 
         public void StartGame()
         {
-            
-            GameStateContext.CurrentState
-                .Where(state => state.GetType() == typeof(Running))
-                .Subscribe(state =>
-                {
-                    MessageBroker.Default.Publish(new InterfaceActHideScreen {Name = "StartScreen"});
-                    MessageBroker.Default.Publish(new InterfaceActShowScreen {Name = "GUI"});
-                });
-
-            GameStateContext.CurrentState
-                .Where(state => state.GetType() == typeof(GameOver))
-                .Subscribe(state =>
-                {
-                    MessageBroker.Default.Publish(new InterfaceActHideScreen { Name = "GUI" });
-                    MessageBroker.Default.Publish(new InterfaceActShowScreen { Name = "GameOver" });
-                });
-
             MessageBroker.Default.Publish(new GameMsgStart());
+        }
+
+        public void Restart()
+        {
+            MessageBroker.Default.Publish(new GameMsgRestart());
         }
 
         private static IEnumerable<Type> CollectAllSystems()

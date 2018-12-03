@@ -11,7 +11,8 @@ namespace Systems.Interface
     [GameSystem]
     public class ScreenSystem : GameSystem<FullScreenComponent>
     {
-        private readonly Dictionary<string, GameObject> _screens = new Dictionary<string, GameObject>();
+        private readonly Dictionary<string, FullScreenComponent> _screens = 
+            new Dictionary<string, FullScreenComponent>();
 
         public override void Init()
         {
@@ -45,14 +46,14 @@ namespace Systems.Interface
 
         public override void Register(FullScreenComponent component)
         {
-            _screens.Add(component.Name, component.gameObject);
+            _screens.Add(component.Name, component);
 
             MessageBroker.Default.Receive<InterfaceActShowScreen>()
-                .Subscribe(screen => _screens[screen.Name].SetActive(true))
+                .Subscribe(screen => _screens[screen.Name].CanvasToHide.enabled = true)
                 .AddTo(component);
 
             MessageBroker.Default.Receive<InterfaceActHideScreen>()
-                .Subscribe(screen => _screens[screen.Name].SetActive(false))
+                .Subscribe(screen => _screens[screen.Name].CanvasToHide.enabled = false)
                 .AddTo(component);
         }
     }
