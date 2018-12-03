@@ -16,7 +16,14 @@ using Object = UnityEngine.Object;
 namespace Systems.Animation
 {
     [GameSystem]
-    public class AnimationSystem : GameSystem<GeorgeAnimationComponent, EnemyAnimationComponent, RotationAnimationComponent, CrumbleComponent>
+    public class AnimationSystem : GameSystem
+    <
+        GeorgeAnimationComponent,
+        EnemyAnimationComponent,
+        RotationAnimationComponent,
+        PresentAnimationComponent,
+        CrumbleComponent
+    >
     {
         public override void Register(GeorgeAnimationComponent component)
         {
@@ -93,11 +100,20 @@ namespace Systems.Animation
                         if (component.CrumblePrefab)
                         {
                             var effect = GameObject.Instantiate(component.CrumblePrefab, component.transform.position, Quaternion.identity);
-                            GameObject.Destroy(effect, 5);
+                            GameObject.Destroy(effect.gameObject, 5);
                         }
                     })
                     .AddTo(component);
             }
+        }
+
+
+        public override void Register(PresentAnimationComponent component)
+        {
+            component.AnimationSpeed.Subscribe(x =>
+            {
+                component.GetComponentInChildren<Animator>().SetFloat("speed", x);
+            }).AddTo(component);
         }
     }
 }
