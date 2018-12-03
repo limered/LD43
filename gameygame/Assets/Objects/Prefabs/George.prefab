@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b56102843325482b961fedfd0a81e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhatShouldRotateWithDirection: {fileID: 0}
+  WhatShouldRotateWithDirection: {fileID: 4758889168251464}
 --- !u!114 &114729799018340164
 MonoBehaviour:
   m_ObjectHideFlags: 1

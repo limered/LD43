@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114474657544267488}
   - component: {fileID: 114493963748510756}
   - component: {fileID: 114576118818196302}
+  - component: {fileID: 114847181223615902}
   m_Layer: 14
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -186,6 +187,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageToPlayer: 10
+--- !u!114 &114847181223615902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554557305599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b763c03dc64c088b1d8b2c0dc607a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhatShouldRotateWithDirection: {fileID: 4706357292171886}
 --- !u!212 &212114516145738484
 SpriteRenderer:
   m_ObjectHideFlags: 1
