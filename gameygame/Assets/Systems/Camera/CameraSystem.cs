@@ -21,7 +21,7 @@ namespace Systems.Camera
                     component
                         .FixedUpdateAsObservable()
                         .Subscribe(unit => MoveCamera(component))
-                        .AddTo(component);
+                        .AddTo(playerComponent);
                 });
         }
 

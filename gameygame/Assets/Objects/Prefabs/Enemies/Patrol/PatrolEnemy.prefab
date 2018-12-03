@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 114847181223615902}
   - component: {fileID: 114514565733370176}
   - component: {fileID: 114648823443251948}
+  - component: {fileID: 114616709571401238}
   m_Layer: 14
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d881021af3b442abf4715e6b5244516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementDirection: 1
+  MovementDirection: -1
   LeftWaypoint: {fileID: 0}
   RightWaypoint: {fileID: 0}
   MovementMaxSpeed: 1
@@ -200,6 +201,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageToPlayer: 10
+--- !u!114 &114616709571401238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554557305599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9947377f04fc425409661504c794d067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114648823443251948
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,15 +1,17 @@
 ﻿using System;
 using SystemBase;
+using Systems.GameState.States;
 using Systems.Health.Actions;
 using Systems.Health.Events;
 using UniRx;
 using UnityEngine;
+using Utils;
 using Object = UnityEngine.Object;
 
 namespace Systems.Health
 {
     [GameSystem]
-    public class HealthSystem : GameSystem<HealthComponent>
+    public class HealthSystem : GameSystem<HealthComponent, DespawnOnGameOverComponent>
     {
         public override void Register(HealthComponent component)
         {
@@ -58,6 +60,14 @@ namespace Systems.Health
                     component.CurrentHealth.Value = 1;
                 }
             };
+        }
+
+        public override void Register(DespawnOnGameOverComponent component)
+        {
+            IoC.Game.GameStateContext.CurrentState
+                .Where(state => state.GetType() == typeof(GameOver))
+                .Subscribe(state => Object.Destroy(component.gameObject))
+                .AddTo(component);
         }
     }
 }

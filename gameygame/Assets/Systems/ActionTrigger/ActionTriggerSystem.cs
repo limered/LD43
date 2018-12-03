@@ -31,7 +31,7 @@ namespace Systems.ActionTrigger
             component.OnTriggerEnter2DAsObservable()
                 .Where(d => d.gameObject == playerComponent.gameObject)
                 .Subscribe(d => { MessageBroker.Default.Publish(new GameMsgEnd()); })
-                .AddTo(component);
+                .AddTo(playerComponent);
         }
     }
 }
