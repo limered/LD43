@@ -38,13 +38,14 @@ GameObject:
   - component: {fileID: 4033134308703842}
   - component: {fileID: 50014249069360140}
   - component: {fileID: 114103105774398518}
+  - component: {fileID: 114286837614000820}
+  - component: {fileID: 114892810740810306}
   - component: {fileID: 70230777675628602}
+  - component: {fileID: 114438828597490192}
   - component: {fileID: 114790712528743752}
-  - component: {fileID: 114836135622238288}
-  - component: {fileID: 114063063633121804}
-  - component: {fileID: 114032531205653036}
+  - component: {fileID: 114513609874413782}
   m_Layer: 14
-  m_Name: CamperEnemy
+  m_Name: Old_CamperEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,33 +131,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114032531205653036
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1726337806525684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde621341ac74ca284ee7e3fe5eaed03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 1824787356774572, guid: 698711cadf4985148b77694d06d9b129,
-    type: 2}
---- !u!114 &114063063633121804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1726337806525684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1c69d96bc715b4a88ec02591361ad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DirectionProvider: 1
-  TimeBetweenFusilladeShots: 0.2
-  TimeBetweenFussilades: 2
 --- !u!114 &114103105774398518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +146,48 @@ MonoBehaviour:
     value: 1
   IsGrounded:
     value: 0
+--- !u!114 &114286837614000820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8f97b190e841a085311b79bd2f286d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementMaxSpeed: 0
+  Direction: 0
+--- !u!114 &114438828597490192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0869b3dd4d4aa8b6fbc3ffb31f341b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartHealth: 1
+  MaxHealth: 1
+  CurrentHealth:
+    value: 1
+--- !u!114 &114513609874413782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a45a9fc1d824d4d9bf0d43aaebe099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reason: 0
+  CrumblePrefab: {fileID: 198422688458289674, guid: b955f5a11ef8d44fb92c3f365eac3a48,
+    type: 2}
 --- !u!114 &114790712528743752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageToPlayer: 10
---- !u!114 &114836135622238288
+--- !u!114 &114892810740810306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,10 +208,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1726337806525684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45d9b3a4345a4e0b80ceb12d62e8c059, type: 3}
+  m_Script: {fileID: 11500000, guid: fde621341ac74ca284ee7e3fe5eaed03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookDirection: 0
+  ProjectilePrefab: {fileID: 1824787356774572, guid: 698711cadf4985148b77694d06d9b129,
+    type: 2}
 --- !u!212 &212094107772655726
 SpriteRenderer:
   m_ObjectHideFlags: 1

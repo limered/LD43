@@ -2,6 +2,7 @@
 using Systems.Physics;
 using UniRx;
 using UnityEngine;
+using Utils.Enums;
 
 namespace Systems.Player
 {
@@ -10,7 +11,7 @@ namespace Systems.Player
     {
         public float JumpTakeofSpeed = 5;
         public float MovementMaxSpeed = 2;
-        public PlayerDirection Direction = PlayerDirection.Right;
+        public UsefulEnums.HorizontalDirection Direction = UsefulEnums.HorizontalDirection.Right;
 
         public float HealthLostPerProjectile;
 

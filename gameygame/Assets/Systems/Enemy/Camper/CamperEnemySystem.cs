@@ -11,6 +11,7 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using Utils;
+using Utils.Enums;
 
 namespace Systems.Enemy.Camper
 {
@@ -80,6 +81,11 @@ namespace Systems.Enemy.Camper
 
         private void ShootAtPlayer(CamperEnemyComponent component)
         {
+            var playerDirection = _player.Value.transform.position - component.transform.position;
+            component.Direction = playerDirection.x < 0
+                ? UsefulEnums.HorizontalDirection.Left
+                : UsefulEnums.HorizontalDirection.Right;
+
             _deltaTimeSinceLastShot += Time.deltaTime;
 
             if (CanShoot())

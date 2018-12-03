@@ -9,49 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1466885881932410}
+  m_RootGameObject: {fileID: 1129658399679382}
   m_IsPrefabAsset: 1
---- !u!1 &1466885881932410
+--- !u!1 &1129658399679382
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4282266590166516}
-  - component: {fileID: 114384147310971610}
-  m_Layer: 0
-  m_Name: CamperSpawner
+  - component: {fileID: 4814114773435936}
+  - component: {fileID: 114630681272748968}
+  m_Layer: 14
+  m_Name: Old_CamperSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4282266590166516
+--- !u!4 &4814114773435936
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1466885881932410}
+  m_GameObject: {fileID: 1129658399679382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.431, y: 0.14, z: 0}
+  m_LocalPosition: {x: 1.53, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114384147310971610
+--- !u!114 &114630681272748968
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1466885881932410}
+  m_GameObject: {fileID: 1129658399679382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c095709452461a9bc2fab4e22a7204, type: 3}
+  m_Script: {fileID: 11500000, guid: 3373954764b6476196465abe6b12f83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnerType: 0
-  LeftBorder: {fileID: 0}
-  Rightborder: {fileID: 0}
-  Prefab: {fileID: 1726337806525684, guid: 8dd50798dcdc34c449af151d92373bfc, type: 2}
+  CamperPrefab: {fileID: 1726337806525684, guid: 69f2c43ffc6da744695f5eb1c1599f1d,
+    type: 2}

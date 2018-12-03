@@ -1,6 +1,7 @@
 ﻿using SystemBase;
 using Systems.Health;
 using UnityEngine;
+using Utils.Enums;
 
 namespace Systems.Enemy.Patrol
 {
@@ -10,7 +11,7 @@ namespace Systems.Enemy.Patrol
         public GameObject PatrolPrefab;
         public GameObject LeftWaypoint;
         public GameObject RightWaypoint;
-        public EnemyDirection StartDirection;
+        public UsefulEnums.HorizontalDirection StartDirection;
         public float MovementMaxSpeed = 25;
     }
 }

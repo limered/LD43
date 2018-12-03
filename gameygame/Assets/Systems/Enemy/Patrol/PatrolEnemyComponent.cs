@@ -1,13 +1,14 @@
 ﻿using Systems.Health;
 using Systems.Physics;
 using UnityEngine;
+using Utils.Enums;
 
 namespace Systems.Enemy.Patrol
 {
     [RequireComponent(typeof(HealthComponent))]
     public class PatrolEnemyComponent : EnemyComponent
     {
-        public EnemyDirection Direction;
+        public UsefulEnums.HorizontalDirection Direction;
         public GameObject LeftWaypoint;
         public GameObject RightWaypoint;
 
@@ -18,26 +19,24 @@ namespace Systems.Enemy.Patrol
             base.Start();
 
             _physics = GetComponent<OldschoolPhysicComponent>();
-            UpdateTargetVelocity();
         }
 
         private void Update()
         {
             if (LeftWaypoint && transform.position.x <= LeftWaypoint.transform.position.x)
             {
-                Direction = EnemyDirection.Right;
-                UpdateTargetVelocity();
+                Direction = UsefulEnums.HorizontalDirection.Right;
             }
             else if (RightWaypoint && transform.position.x >= RightWaypoint.transform.position.x)
             {
-                Direction = EnemyDirection.Left;
-                UpdateTargetVelocity();
+                Direction = UsefulEnums.HorizontalDirection.Left;
             }
+            UpdateTargetVelocity();
         }
 
         private void UpdateTargetVelocity()
         {
-            var velocity = (int) Direction * MovementMaxSpeed * Time.deltaTime;
+            var velocity = (int) Direction * MovementMaxSpeed;
             _physics.TargetVellocity.Value = new Vector2(velocity, 0);
         }
     }

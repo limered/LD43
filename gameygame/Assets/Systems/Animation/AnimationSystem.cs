@@ -63,7 +63,7 @@ namespace Systems.Animation
             {
                 enemy.Animator.SetFloat("walkspeed", Mathf.Abs(v.x / enemy.MovementMaxSpeed));
                 rotateThis.localScale = new Vector3(
-                    Mathf.Abs(rotateThis.localScale.x) * (float)enemy.Direction,
+                    Mathf.Abs(rotateThis.localScale.x) * (float) enemy.Direction,
                     rotateThis.localScale.y,
                     1);
             }).AddTo(component);

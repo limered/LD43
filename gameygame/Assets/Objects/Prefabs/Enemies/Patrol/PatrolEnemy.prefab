@@ -38,14 +38,10 @@ GameObject:
   - component: {fileID: 4666423036987074}
   - component: {fileID: 50567575228340418}
   - component: {fileID: 114049995732860120}
-  - component: {fileID: 114173478691497444}
-  - component: {fileID: 114428132999634960}
-  - component: {fileID: 114229593653594942}
-  - component: {fileID: 114162536297275602}
   - component: {fileID: 70281579105203346}
-  - component: {fileID: 114825708134237210}
-  - component: {fileID: 114863137341233914}
-  - component: {fileID: 114791958337936792}
+  - component: {fileID: 114474657544267488}
+  - component: {fileID: 114493963748510756}
+  - component: {fileID: 114576118818196302}
   m_Layer: 14
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -60,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1554557305599014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58363986, y: 0.0310149, z: 0}
+  m_LocalPosition: {x: 0.5935582, y: 0.13078141, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4706357292171886}
@@ -148,7 +144,7 @@ MonoBehaviour:
     value: 1
   IsGrounded:
     value: 0
---- !u!114 &114162536297275602
+--- !u!114 &114474657544267488
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,59 +152,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554557305599014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 333b763c03dc64c088b1d8b2c0dc607a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d881021af3b442abf4715e6b5244516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhatShouldRotateWithDirection: {fileID: 4706357292171886}
---- !u!114 &114173478691497444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1554557305599014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca47eb59fdf28c4c9b8cf732654b292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Direction: 1
+  MovementDirection: 1
   LeftWaypoint: {fileID: 0}
   RightWaypoint: {fileID: 0}
---- !u!114 &114229593653594942
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1554557305599014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb219b23cdf4b314f94a27bca3cc8012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114428132999634960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1554557305599014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d525c42c11d945f4398061ed8f84e5f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114791958337936792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1554557305599014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6811c9257268401a8c28050a9c0e390e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageToPlayer: 10
---- !u!114 &114825708134237210
+  MovementMaxSpeed: 1
+--- !u!114 &114493963748510756
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,7 +174,7 @@ MonoBehaviour:
   MaxHealth: 1
   CurrentHealth:
     value: 1
---- !u!114 &114863137341233914
+--- !u!114 &114576118818196302
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,12 +182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554557305599014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a45a9fc1d824d4d9bf0d43aaebe099, type: 3}
+  m_Script: {fileID: 11500000, guid: 6811c9257268401a8c28050a9c0e390e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reason: 0
-  CrumblePrefab: {fileID: 198422688458289674, guid: b955f5a11ef8d44fb92c3f365eac3a48,
-    type: 2}
+  DamageToPlayer: 10
 --- !u!212 &212114516145738484
 SpriteRenderer:
   m_ObjectHideFlags: 1

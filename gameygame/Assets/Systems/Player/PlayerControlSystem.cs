@@ -8,6 +8,7 @@ using Systems.Physics;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using Utils.Enums;
 
 namespace Systems.Player
 {
@@ -33,7 +34,7 @@ namespace Systems.Player
 
             if (component.GetComponent<HealthComponent>().CurrentHealth.Value <= 1) return;
 
-            var shootDirection = component.Direction == PlayerDirection.Left ? Vector2.left : Vector2.right;
+            var shootDirection = component.Direction == UsefulEnums.HorizontalDirection.Left ? Vector2.left : Vector2.right;
 
             MessageBroker.Default
                 .Publish(new CombatActShoot
@@ -59,9 +60,9 @@ namespace Systems.Player
 
             move.x = hAxis * component.MovementMaxSpeed;
             component.Direction = hAxis < 0
-            ? PlayerDirection.Left
+            ? UsefulEnums.HorizontalDirection.Left
             : hAxis > 0
-                ? PlayerDirection.Right
+                ? UsefulEnums.HorizontalDirection.Right
                 : component.Direction;
 
             if (Input.GetButtonDown("Jump") && physics.IsGrounded.Value)
@@ -75,11 +76,5 @@ namespace Systems.Player
 
             physics.TargetVellocity.Value = move;
         }
-    }
-
-    public enum PlayerDirection
-    {
-        Left = -1,
-        Right = 1
     }
 }
