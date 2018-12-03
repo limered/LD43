@@ -11,6 +11,7 @@ using UniRx.Triggers;
 using UnityEngine;
 using Utils;
 using Object = UnityEngine.Object;
+using Assets.Systems.Sound;
 
 namespace Systems.Player
 {
@@ -59,7 +60,12 @@ namespace Systems.Player
 
             MessageBroker.Default.Receive<HealthEvtDied>()
                 .Where(died => died.Target == component.gameObject)
-                .Subscribe(died => { Object.Destroy(component.gameObject); })
+                .Subscribe(died => {
+                    string[] dies = new[] { "Die1", "Die2" };
+                    dies[UnityEngine.Random.Range(0, dies.Length)].Play();
+
+                    Object.Destroy(component.gameObject);
+                })
                 .AddTo(component);
         }
 
@@ -70,6 +76,12 @@ namespace Systems.Player
                 var health = component.GetComponent<HealthComponent>();
                 var scale = f / health.MaxHealth;
                 component.CurrentSize.Value = Mathf.Lerp(component.SmallSize, component.FullSize, scale);
+
+                if(f >= 1)
+                {
+                    string[] ouches = new[] { "Ouch1", "Ouch2", "Ouch3", "Ouch4", "Ouch5" };
+                    ouches[UnityEngine.Random.Range(0, ouches.Length)].Play();
+                }
             };
         }
 
