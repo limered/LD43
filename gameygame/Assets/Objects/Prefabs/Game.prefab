@@ -184,3 +184,9 @@ MonoBehaviour:
   - Name: Die2
     File: {fileID: 8300000, guid: c168ecdc4541e82458a681af0b8a5e98, type: 3}
     Volume: 0.65
+  - Name: present
+    File: {fileID: 8300000, guid: 4f21d190e84aed5429b8da08097fab93, type: 3}
+    Volume: 0.65
+  - Name: cheering
+    File: {fileID: 8300000, guid: f20e6287af9b0274eb786e359d286431, type: 3}
+    Volume: 0.65

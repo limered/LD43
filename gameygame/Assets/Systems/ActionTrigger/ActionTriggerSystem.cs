@@ -5,6 +5,7 @@ using Systems.Player;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using Assets.Systems.Sound;
 
 namespace Systems.ActionTrigger
 {
@@ -30,7 +31,9 @@ namespace Systems.ActionTrigger
         {
             component.OnTriggerEnter2DAsObservable()
                 .Where(d => d.gameObject == playerComponent.gameObject)
-                .Subscribe(d => { MessageBroker.Default.Publish(new GameMsgEnd()); })
+                .Subscribe(d => { MessageBroker.Default.Publish(new GameMsgEnd());
+                    "cheering".Play();
+                })
                 .AddTo(playerComponent);
         }
     }

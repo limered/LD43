@@ -5,6 +5,7 @@ using Systems.Player;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using Assets.Systems.Sound;
 
 namespace Systems.Collectables
 {
@@ -39,6 +40,7 @@ namespace Systems.Collectables
                 .Where(d => d.gameObject == playerComponent.gameObject)
                 .Subscribe(d =>
                 {
+                    "present".Play();
                     MessageBroker.Default.Publish(new PresentEvtCollected {Present = component});
                     Object.Destroy(component.gameObject);
                 })
