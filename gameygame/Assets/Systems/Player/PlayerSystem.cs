@@ -62,11 +62,11 @@ namespace Systems.Player
             MessageBroker.Default.Receive<HealthEvtDied>()
                 .Where(died => died.Target == component.gameObject)
                 .Subscribe(died => {
-                    string[] dies = new[] { "Die1", "Die2" };
-                    dies[UnityEngine.Random.Range(0, dies.Length)].Play();
+
+                    "Die1".Play();
+                    "burst".Play();
 
                     Object.Destroy(component.gameObject);
-
                     MessageBroker.Default.Publish(new GameMsgEnd());
                     MessageBroker.Default.Publish(new GameMsgRestart());
                 })
@@ -89,15 +89,11 @@ namespace Systems.Player
         {
             return f =>
             {
+                if (f >= 1) { "Ouch5".Play(); }
+
                 var health = component.GetComponent<HealthComponent>();
                 var scale = f / health.MaxHealth;
                 component.CurrentSize.Value = Mathf.Lerp(component.SmallSize, component.FullSize, scale);
-
-                if(f >= 1)
-                {
-                    string[] ouches = new[] { "Ouch1", "Ouch2", "Ouch3", "Ouch4", "Ouch5" };
-                    ouches[UnityEngine.Random.Range(0, ouches.Length)].Play();
-                }
             };
         }
 

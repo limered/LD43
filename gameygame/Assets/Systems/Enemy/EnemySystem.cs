@@ -4,6 +4,7 @@ using Systems.Enemy.Components;
 using Systems.Health;
 using Systems.Health.Actions;
 using Systems.Health.Events;
+using Assets.Systems.Sound;
 using UniRx;
 using UnityEngine;
 
@@ -29,7 +30,13 @@ namespace Systems.Enemy
 
             MessageBroker.Default.Receive<HealthEvtDied>()
                 .Where(died => died.Target == component.gameObject)
-                .Subscribe(died => Object.Destroy(died.Target))
+                .Subscribe(died =>
+                {
+                    "Die2".Play();
+                    "burst".Play();
+
+                    Object.Destroy(died.Target);
+                })
                 .AddTo(component);
         }
     }
