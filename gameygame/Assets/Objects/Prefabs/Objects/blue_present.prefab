@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0178fe8436dc4aff8ea279a9cbab2153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: turquoise
+  Id: blue
   Empty: {fileID: 21300012, guid: 46b3f6599bb43464198479067b7cdcf9, type: 3}
   Full: {fileID: 21300002, guid: 46b3f6599bb43464198479067b7cdcf9, type: 3}
 --- !u!212 &212653915416643776

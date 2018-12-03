@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 114206074783548062}
   - component: {fileID: 114717883590959930}
   - component: {fileID: 114753995919577952}
+  - component: {fileID: 114906954137664924}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -805,6 +806,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: StartScreen
   CanvasToHide: {fileID: 223121131634283520}
+--- !u!114 &114906954137664924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464276749961070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846f64a5f383b4a4fbf4f4c760256955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Presents:
+  - {fileID: 1983331212304972}
+  - {fileID: 1568541379292588}
+  - {fileID: 1921907255305502}
+  - {fileID: 1964357985164016}
+  - {fileID: 1505818582615424}
 --- !u!114 &114968983376404040
 MonoBehaviour:
   m_ObjectHideFlags: 1

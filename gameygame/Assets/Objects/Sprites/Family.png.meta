@@ -112,12 +112,12 @@ TextureImporter:
       name: Family_0
       rect:
         serializedVersion: 2
-        x: 139
-        y: 137
-        width: 342
-        height: 432
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 125
+        width: 345
+        height: 444
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -132,12 +132,12 @@ TextureImporter:
       name: Family_1
       rect:
         serializedVersion: 2
-        x: 518
-        y: 137
-        width: 342
-        height: 432
+        x: 617
+        y: 120
+        width: 233
+        height: 302
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: Family_2
       rect:
         serializedVersion: 2
-        x: 902
-        y: 133
-        width: 341
-        height: 410
+        x: 938
+        y: 123
+        width: 239
+        height: 286
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
