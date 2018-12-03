@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114383236726712290}
   - component: {fileID: 61398995294557782}
   m_Layer: 0
-  m_Name: tyrcise_present
+  m_Name: turquoise_present
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0178fe8436dc4aff8ea279a9cbab2153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: tyrcise
+  Id: turquoise
   Empty: {fileID: 21300016, guid: 46b3f6599bb43464198479067b7cdcf9, type: 3}
   Full: {fileID: 21300006, guid: 46b3f6599bb43464198479067b7cdcf9, type: 3}
 --- !u!114 &114787706245179660

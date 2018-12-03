@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters;
 using SystemBase;
 using Systems.Collectables.Events;
 using Systems.Player;

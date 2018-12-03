@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4807905567427332}
   - component: {fileID: 114980800825087718}
   m_Layer: 0
-  m_Name: tyrcise_spawner
+  m_Name: turquoise_spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
