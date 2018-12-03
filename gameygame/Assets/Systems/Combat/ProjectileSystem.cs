@@ -65,6 +65,11 @@ namespace Systems.Combat
 
             UpdateVelocity(component, physics);
             UpdateGravity(component, physics);
+
+            if (component.transform.position.y < -5)
+            {
+                Object.Destroy(component.gameObject);
+            }
         }
 
         private static void UpdateGravity(ProjectileComponent component, ProjectilePhysicComponent physics)
