@@ -2,6 +2,7 @@
 using SystemBase;
 using Systems.GameState.Physics;
 using Systems.Health.Actions;
+using Assets.Systems.Sound;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace Systems.Combat
             {
                 if (ds.gameObject.GetComponent<CollisionDamageRecieverComponent>())
                 {
+                    "PlayerHit".Play();
+
                     MessageBroker.Default.Publish(new HealthActSubtract
                     {
                         CanKill = true,

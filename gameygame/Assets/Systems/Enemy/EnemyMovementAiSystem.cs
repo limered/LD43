@@ -1,5 +1,6 @@
 ﻿using SystemBase;
 using Systems.Enemy.Components;
+using Systems.Physics;
 using Systems.Player;
 using UniRx;
 using UniRx.Triggers;
@@ -9,7 +10,7 @@ using Utils.Enums;
 namespace Systems.Enemy
 {
     [GameSystem(typeof(PlayerSystem))]
-    public class EnemyMovementAiSystem : GameSystem<PatrolMovementComponent, AimAtPlayerComponent, PlayerComponent>
+    public class EnemyMovementAiSystem : GameSystem<PatrolMovementComponent, AimAtPlayerComponent, PlayerComponent, JumpingJackMovementComponent>
     {
         private readonly ReactiveProperty<PlayerComponent> _player = new ReactiveProperty<PlayerComponent>();
 
@@ -64,6 +65,28 @@ namespace Systems.Enemy
             component.LookDirection = dir.x < 0 ?
                 UsefulEnums.HorizontalDirection.Left :
                 UsefulEnums.HorizontalDirection.Right;
+        }
+
+        public override void Register(JumpingJackMovementComponent component)
+        {
+            _player.Where(playerComponent => playerComponent)
+                .Select(playerComponent => new {playerComponent, component})
+                .Subscribe(obj => StartRegistration(obj.playerComponent, obj.component))
+                .AddTo(component);
+        }
+
+        private void StartRegistration(PlayerComponent playerComponent, JumpingJackMovementComponent component)
+        {
+            component.FixedUpdateAsObservable()
+                .Subscribe(unit =>
+                {
+                    var physics = component.GetComponent<OldschoolPhysicComponent>();
+
+                    if (Input.GetButtonDown("Jump") && physics.IsGrounded.Value)
+                    {
+                        physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, playerComponent.JumpTakeofSpeed);
+                    }
+                }).AddTo(playerComponent);
         }
     }
 }

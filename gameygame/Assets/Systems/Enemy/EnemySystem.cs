@@ -32,8 +32,7 @@ namespace Systems.Enemy
                 .Where(died => died.Target == component.gameObject)
                 .Subscribe(died =>
                 {
-                    "Die2".Play();
-                    "burst".Play();
+                    "EnemyDeath".Play();
 
                     Object.Destroy(died.Target);
                 })

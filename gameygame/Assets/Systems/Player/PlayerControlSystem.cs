@@ -5,6 +5,7 @@ using Systems.GameState.Physics;
 using Systems.Health;
 using Systems.Health.Actions;
 using Systems.Physics;
+using Assets.Systems.Sound;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -35,6 +36,8 @@ namespace Systems.Player
             if (component.GetComponent<HealthComponent>().CurrentHealth.Value <= 1) return;
 
             var shootDirection = component.Direction == UsefulEnums.HorizontalDirection.Left ? Vector2.left : Vector2.right;
+
+            "PlayerShoot".Play();
 
             MessageBroker.Default
                 .Publish(new CombatActShoot
@@ -67,6 +70,7 @@ namespace Systems.Player
 
             if (Input.GetButtonDown("Jump") && physics.IsGrounded.Value)
             {
+                "Jump".Play();
                 physics.Velocity.Value = new Vector2(physics.Velocity.Value.x, component.JumpTakeofSpeed);
             }
             else if (Input.GetButtonUp("Jump") && physics.Velocity.Value.y > 0)

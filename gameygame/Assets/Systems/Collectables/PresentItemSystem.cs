@@ -40,7 +40,7 @@ namespace Systems.Collectables
                 .Where(d => d.gameObject == playerComponent.gameObject)
                 .Subscribe(d =>
                 {
-                    "present".Play();
+                    "Present".Play();
                     MessageBroker.Default.Publish(new PresentEvtCollected {Present = component});
                     Object.Destroy(component.gameObject);
                 })

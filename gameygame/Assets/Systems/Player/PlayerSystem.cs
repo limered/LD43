@@ -50,6 +50,8 @@ namespace Systems.Player
                 {
                     component.LastHitTimestamp = Time.realtimeSinceStartup;
 
+                    "PlayerHit".Play();
+
                     MessageBroker.Default.Publish(new HealthActSubtract
                     {
                         CanKill = true,
@@ -63,8 +65,7 @@ namespace Systems.Player
                 .Where(died => died.Target == component.gameObject)
                 .Subscribe(died => {
 
-                    "Die1".Play();
-                    "burst".Play();
+                    "EnemyDeath".Play();
 
                     Object.Destroy(component.gameObject);
                     MessageBroker.Default.Publish(new GameMsgEnd());
@@ -89,8 +90,6 @@ namespace Systems.Player
         {
             return f =>
             {
-                if (f >= 1) { "Ouch5".Play(); }
-
                 var health = component.GetComponent<HealthComponent>();
                 var scale = f / health.MaxHealth;
                 component.CurrentSize.Value = Mathf.Lerp(component.SmallSize, component.FullSize, scale);

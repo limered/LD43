@@ -38,14 +38,15 @@ GameObject:
   - component: {fileID: 4033134308703842}
   - component: {fileID: 50014249069360140}
   - component: {fileID: 114103105774398518}
-  - component: {fileID: 114286837614000820}
-  - component: {fileID: 114892810740810306}
   - component: {fileID: 70230777675628602}
-  - component: {fileID: 114438828597490192}
   - component: {fileID: 114790712528743752}
-  - component: {fileID: 114513609874413782}
+  - component: {fileID: 114202760620482782}
+  - component: {fileID: 114226613675765914}
+  - component: {fileID: 114498396602094014}
+  - component: {fileID: 114831498152766186}
+  - component: {fileID: 114945519082280728}
   m_Layer: 14
-  m_Name: Old_CamperEnemy
+  m_Name: JumpingJack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +147,7 @@ MonoBehaviour:
     value: 1
   IsGrounded:
     value: 0
---- !u!114 &114286837614000820
+--- !u!114 &114202760620482782
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,12 +155,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1726337806525684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd8f97b190e841a085311b79bd2f286d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7db78d30acfd7134c9246a88344f46ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementMaxSpeed: 0
-  Direction: 0
---- !u!114 &114438828597490192
+--- !u!114 &114226613675765914
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +173,7 @@ MonoBehaviour:
   MaxHealth: 1
   CurrentHealth:
     value: 1
---- !u!114 &114513609874413782
+--- !u!114 &114498396602094014
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811c9257268401a8c28050a9c0e390e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageToPlayer: 10
---- !u!114 &114892810740810306
+  DamageToPlayer: 100
+--- !u!114 &114831498152766186
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,11 +207,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1726337806525684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde621341ac74ca284ee7e3fe5eaed03, type: 3}
+  m_Script: {fileID: 11500000, guid: 9947377f04fc425409661504c794d067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 1824787356774572, guid: 698711cadf4985148b77694d06d9b129,
-    type: 2}
+--- !u!114 &114945519082280728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726337806525684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a5104503c78ea4da431b5c9bce7917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212094107772655726
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -247,7 +255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6302dc89beb55234281cdcc09db97887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
