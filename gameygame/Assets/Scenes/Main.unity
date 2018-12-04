@@ -3592,6 +3592,14 @@ Prefab:
       propertyPath: m_CompositePaths.m_Paths.Array.data[41].Array.data[9].x
       value: 23.595417
       objectReference: {fileID: 0}
+    - target: {fileID: 4832706233932004, guid: 682c5f7a0887a1b438093d7ab140e46e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832706233932004, guid: 682c5f7a0887a1b438093d7ab140e46e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.008
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682c5f7a0887a1b438093d7ab140e46e, type: 2}
   m_IsPrefabAsset: 0
@@ -3938,6 +3946,11 @@ Prefab:
         type: 2}
       propertyPath: Sounds.Array.data[9].Volume
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 82575929249389352, guid: 6bccad4658d6cbf4d9b33b1ad35feda8,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bccad4658d6cbf4d9b33b1ad35feda8, type: 2}

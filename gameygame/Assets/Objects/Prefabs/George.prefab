@@ -159,10 +159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7508383d53461696915a2b5b69c6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimBetweenHits: 0.1
   JumpTakeofSpeed: 5
   MovementMaxSpeed: 2
   Direction: 1
-  HealthLostPerProjectile: 5
+  HealthLostPerProjectile: 10
   FullSize: 2
   SmallSize: 1
   CurrentSize:
@@ -178,6 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8bde028d57ae5418d6a8985e3b098a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShakeStrength: 0.03
+  ShakeDecay: 0.005
 --- !u!114 &114233417901710824
 MonoBehaviour:
   m_ObjectHideFlags: 1

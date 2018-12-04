@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Systems.Combat
 {
     [GameSystem(typeof(OldschoolPhysicSystem))]
-    public class CollisionDamageSustem : GameSystem<CollisionDamageComponent>
+    public class CollisionDamageSustem : GameSystem<CollisionDamageComponent, CollisionDamageRecieverComponent>
     {
         public override void Register(CollisionDamageComponent component)
         {
@@ -23,8 +23,10 @@ namespace Systems.Combat
         {
             return ds =>
             {
-                if (ds.gameObject.GetComponent<CollisionDamageRecieverComponent>())
+                var reciever = ds.gameObject.GetComponent<CollisionDamageRecieverComponent>();
+                if (reciever)
                 {
+                    reciever.RecievedDamage.Execute();
                     "PlayerHit".Play();
 
                     MessageBroker.Default.Publish(new HealthActSubtract
@@ -35,6 +37,14 @@ namespace Systems.Combat
                     });
                 }
             };
+        }
+
+        public override void Register(CollisionDamageRecieverComponent component)
+        {
+            component.RecievedDamage.Subscribe(unit =>
+            {
+                component.Shake();
+            }).AddTo(component);
         }
     }
 }

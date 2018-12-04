@@ -1,5 +1,6 @@
 ﻿using System;
 using SystemBase;
+using Systems.Combat;
 using Systems.Combat.Events;
 using Systems.GameState.Messages;
 using Systems.GameState.States;
@@ -51,6 +52,11 @@ namespace Systems.Player
                     component.LastHitTimestamp = Time.realtimeSinceStartup;
 
                     "PlayerHit".Play();
+                    var reciever = component.gameObject.GetComponent<CollisionDamageRecieverComponent>();
+                    if (reciever)
+                    {
+                        reciever.RecievedDamage.Execute();
+                    }
 
                     MessageBroker.Default.Publish(new HealthActSubtract
                     {
