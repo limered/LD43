@@ -7,6 +7,8 @@ using Systems.GameState.Messages;
 using Systems.GameState.States;
 using Systems.Interface.Actions;
 using UniRx;
+using UniRx.Triggers;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
 
@@ -48,6 +50,31 @@ namespace Systems
             Init();
 
             MessageBroker.Default.Publish(new GameMsgFinishedLoading());
+
+            GameStateContext.CurrentState.Where(state => state is StartScreen).Subscribe(_ => ListenToGameStartButtonPressed());
+            GameStateContext.CurrentState.Where(state => state is GameOver).Subscribe(_ => ListenToGameRestartButtonPressed());
+        }
+
+        private void ListenToGameStartButtonPressed()
+        {
+            this.UpdateAsObservable().Subscribe(_ =>
+            {
+                if (Input.GetButtonDown("Start"))
+                {
+                    StartGame();
+                }
+            });
+        }
+
+        private void ListenToGameRestartButtonPressed()
+        {
+            this.UpdateAsObservable().Subscribe(_ =>
+            {
+                if (Input.GetButtonDown("Start"))
+                {
+                    Restart();
+                }
+            });
         }
     }
 }
