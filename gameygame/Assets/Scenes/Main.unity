@@ -9460,78 +9460,82 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1028080075}
-    - target: {fileID: 223121131634283520, guid: 1635c8021a6af234aade44df722696dc,
-        type: 3}
-      propertyPath: m_PlaneDistance
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 223121131634283520, guid: 1635c8021a6af234aade44df722696dc,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 223121131634283520, guid: 1635c8021a6af234aade44df722696dc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 223486220930234776, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223947261527075520, guid: 1635c8021a6af234aade44df722696dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223947261527075520, guid: 1635c8021a6af234aade44df722696dc,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1028080075}
+    - target: {fileID: 223947261527075520, guid: 1635c8021a6af234aade44df722696dc,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 223947261527075520, guid: 1635c8021a6af234aade44df722696dc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224079823785551754, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 235.9
+      value: 235.6
       objectReference: {fileID: 0}
     - target: {fileID: 224079823785551754, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -218.7
+      value: -216.2
       objectReference: {fileID: 0}
     - target: {fileID: 224237414991935380, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 299.8
+      value: 300.5
       objectReference: {fileID: 0}
     - target: {fileID: 224237414991935380, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -225.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224511439782261614, guid: 1635c8021a6af234aade44df722696dc,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -199.8
+      value: -222.7
       objectReference: {fileID: 0}
     - target: {fileID: 224511439782261614, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 129.5
+      value: 129.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511439782261614, guid: 1635c8021a6af234aade44df722696dc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200.2
       objectReference: {fileID: 0}
     - target: {fileID: 224517659155486214, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 371.2
+      value: 372.5
       objectReference: {fileID: 0}
     - target: {fileID: 224517659155486214, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -209.3
+      value: -207.5
       objectReference: {fileID: 0}
     - target: {fileID: 224887619191414186, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 181.9
+      value: 179.7
       objectReference: {fileID: 0}
     - target: {fileID: 224887619191414186, guid: 1635c8021a6af234aade44df722696dc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -225.5
+      value: -220.3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114906954137664924, guid: 1635c8021a6af234aade44df722696dc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1635c8021a6af234aade44df722696dc, type: 3}
 --- !u!1 &1957022434
 GameObject:

@@ -163,7 +163,7 @@ MonoBehaviour:
   JumpTakeofSpeed: 5
   MovementMaxSpeed: 2
   Direction: 1
-  HealthLostPerProjectile: 10
+  HealthLostPerProjectile: 5
   FullSize: 2
   SmallSize: 1
   CurrentSize:
