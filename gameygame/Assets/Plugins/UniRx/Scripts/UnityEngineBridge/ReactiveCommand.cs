@@ -1,19 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
-#if CSHARP_7_OR_LATER
-using UniRx.Async;
-#endif
 
+#if CSHARP_7_OR_LATER || (UNITY_2018_3_OR_NEWER && (NET_STANDARD_2_0 || NET_4_6))
+using System.Threading.Tasks;
+using UniRx.InternalUtil;
+#endif
 namespace UniRx
 {
     public interface IReactiveCommand<T> : IObservable<T>
     {
         IReadOnlyReactiveProperty<bool> CanExecute { get; }
         bool Execute(T parameter);
-
-#if (CSHARP_7_OR_LATER)
-        UniTask<T> WaitUntilExecuteAsync();
-#endif
     }
 
     public interface IAsyncReactiveCommand<T>
@@ -21,10 +19,6 @@ namespace UniRx
         IReadOnlyReactiveProperty<bool> CanExecute { get; }
         IDisposable Execute(T parameter);
         IDisposable Subscribe(Func<T, IObservable<Unit>> asyncAction);
-
-#if (CSHARP_7_OR_LATER)
-        UniTask<T> WaitUntilExecuteAsync();
-#endif
     }
 
     /// <summary>
@@ -102,11 +96,6 @@ namespace UniRx
             if (canExecute.Value)
             {
                 trigger.OnNext(parameter);
-
-#if (CSHARP_7_OR_LATER)
-                promise?.InvokeContinuation(ref parameter);
-#endif
-
                 return true;
             }
             else
@@ -140,19 +129,6 @@ namespace UniRx
             trigger.Dispose();
             canExecuteSubscription.Dispose();
         }
-
-#if (CSHARP_7_OR_LATER)
-
-        ReactivePropertyReusablePromise<T> promise;
-
-        public UniTask<T> WaitUntilExecuteAsync()
-        {
-            if (promise != null) return promise.Task;
-            promise = new ReactivePropertyReusablePromise<T>();
-            return promise.Task;
-        }
-
-#endif
     }
 
     /// <summary>
@@ -228,7 +204,7 @@ namespace UniRx
         public AsyncReactiveCommand(IObservable<bool> canExecuteSource)
         {
             this.canExecuteSource = new ReactiveProperty<bool>(true);
-            this.canExecute = canExecute.CombineLatest(canExecuteSource, (x, y) => x && y).ToReactiveProperty();
+            this.canExecute = this.canExecuteSource.CombineLatest(canExecuteSource, (x, y) => x && y).ToReactiveProperty();
         }
 
         /// <summary>
@@ -252,10 +228,6 @@ namespace UniRx
                 {
                     try
                     {
-#if (CSHARP_7_OR_LATER)
-                        promise?.InvokeContinuation(ref parameter);
-#endif
-
                         var asyncState = a[0].Invoke(parameter) ?? Observable.ReturnUnit();
                         return asyncState.Finally(() => canExecuteSource.Value = true).Subscribe();
                     }
@@ -270,10 +242,6 @@ namespace UniRx
                     var xs = new IObservable<Unit>[a.Length];
                     try
                     {
-#if (CSHARP_7_OR_LATER)
-                        promise?.InvokeContinuation(ref parameter);
-#endif
-
                         for (int i = 0; i < a.Length; i++)
                         {
                             xs[i] = a[i].Invoke(parameter) ?? Observable.ReturnUnit();
@@ -305,19 +273,16 @@ namespace UniRx
             return new Subscription(this, asyncAction);
         }
 
-#if (CSHARP_7_OR_LATER)
-
-        ReactivePropertyReusablePromise<T> promise;
-
-        public UniTask<T> WaitUntilExecuteAsync()
+        /// <summary>
+        /// Stop all subscription and lock CanExecute is false.
+        /// </summary>
+        public void Dispose()
         {
-            if (promise != null) return promise.Task;
-            promise = new ReactivePropertyReusablePromise<T>();
-            return promise.Task;
+            if (IsDisposed) return;
+
+            IsDisposed = true;
+            asyncActions = UniRx.InternalUtil.ImmutableList<Func<T, IObservable<Unit>>>.Empty;
         }
-
-#endif
-
         class Subscription : IDisposable
         {
             readonly AsyncReactiveCommand<T> parent;
@@ -357,11 +322,36 @@ namespace UniRx
             return new ReactiveCommand<T>(canExecuteSource, initialValue);
         }
 
-#if (CSHARP_7_OR_LATER)
+#if CSHARP_7_OR_LATER || (UNITY_2018_3_OR_NEWER && (NET_STANDARD_2_0 || NET_4_6))
 
-        public static UniTask<T>.Awaiter GetAwaiter<T>(this IReactiveCommand<T> command)
+        static readonly Action<object> Callback = CancelCallback;
+
+        static void CancelCallback(object state)
         {
-            return command.WaitUntilExecuteAsync().GetAwaiter();
+            var tuple = (Tuple<ICancellableTaskCompletionSource, IDisposable>)state;
+            tuple.Item2.Dispose();
+            tuple.Item1.TrySetCanceled();
+        }
+
+        public static Task<T> WaitUntilExecuteAsync<T>(this IReactiveCommand<T> source, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var tcs = new CancellableTaskCompletionSource<T>();
+
+            var disposable = new SingleAssignmentDisposable();
+            disposable.Disposable = source.Subscribe(x =>
+            {
+                disposable.Dispose(); // finish subscription.
+                tcs.TrySetResult(x);
+            }, ex => tcs.TrySetException(ex), () => tcs.TrySetCanceled());
+
+            cancellationToken.Register(Callback, Tuple.Create(tcs, disposable.Disposable), false);
+
+            return tcs.Task;
+        }
+
+        public static System.Runtime.CompilerServices.TaskAwaiter<T> GetAwaiter<T>(this IReactiveCommand<T> command)
+        {
+            return command.WaitUntilExecuteAsync(CancellationToken.None).GetAwaiter();
         }
 
 #endif
@@ -418,14 +408,34 @@ namespace UniRx
             return new AsyncReactiveCommand<T>(sharedCanExecuteSource);
         }
 
-#if (CSHARP_7_OR_LATER)
+#if CSHARP_7_OR_LATER || (UNITY_2018_3_OR_NEWER && (NET_STANDARD_2_0 || NET_4_6))
 
-        public static UniTask<T>.Awaiter GetAwaiter<T>(this IAsyncReactiveCommand<T> command)
+        static readonly Action<object> Callback = CancelCallback;
+
+        static void CancelCallback(object state)
         {
-            return command.WaitUntilExecuteAsync().GetAwaiter();
+            var tuple = (Tuple<ICancellableTaskCompletionSource, IDisposable>)state;
+            tuple.Item2.Dispose();
+            tuple.Item1.TrySetCanceled();
+        }
+
+        public static Task<T> WaitUntilExecuteAsync<T>(this IAsyncReactiveCommand<T> source, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var tcs = new CancellableTaskCompletionSource<T>();
+
+            var subscription = source.Subscribe(x => { tcs.TrySetResult(x); return Observable.ReturnUnit(); });
+            cancellationToken.Register(Callback, Tuple.Create(tcs, subscription), false);
+
+            return tcs.Task;
+        }
+
+        public static System.Runtime.CompilerServices.TaskAwaiter<T> GetAwaiter<T>(this IAsyncReactiveCommand<T> command)
+        {
+            return command.WaitUntilExecuteAsync(CancellationToken.None).GetAwaiter();
         }
 
 #endif
+
 
 #if !UniRxLibrary
 

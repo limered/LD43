@@ -1,12 +1,18 @@
 fileFormatVersion: 2
 guid: b6f264e855cb092428499d364d95a341
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Jumping_George_0
-    21300002: Jumping_George_1
-    21300004: Jumping_George_2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Jumping_George_0
+  - first:
+      213: 21300002
+    second: Jumping_George_1
+  - first:
+      213: 21300004
+    second: Jumping_George_2
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -61,7 +67,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -72,7 +78,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -83,7 +90,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -94,7 +102,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -105,6 +114,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -124,6 +134,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e57d8203d2ca455468214f8146720eb8
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -144,6 +155,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7f40af8cb24050b48b9f4af29bb962d6
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -164,6 +176,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 591b6b0ba6b348147abdfe989e4fa068
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -172,10 +185,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 086ee41901e79504c8b416dcdd07ec09
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

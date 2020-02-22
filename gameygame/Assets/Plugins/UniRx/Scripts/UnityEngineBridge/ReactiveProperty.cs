@@ -1,11 +1,16 @@
-﻿using System;
+﻿#if CSHARP_7_OR_LATER || (UNITY_2018_3_OR_NEWER && (NET_STANDARD_2_0 || NET_4_6))
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#endif
+
+using System;
 using System.Collections.Generic;
 using System.Threading;
+using UniRx.InternalUtil;
 #if !UniRxLibrary
 using UnityEngine;
 #endif
-#if CSHARP_7_OR_LATER
-using UniRx.Async;
+#if CSHARP_7_OR_LATER || (UNITY_2018_3_OR_NEWER && (NET_STANDARD_2_0 || NET_4_6))
+using System.Threading.Tasks;
 #endif
 
 namespace UniRx
@@ -14,10 +19,6 @@ namespace UniRx
     {
         T Value { get; }
         bool HasValue { get; }
-
-#if (CSHARP_7_OR_LATER)
-        UniTask<T> WaitUntilValueChangedAsync();
-#endif
     }
 
     public interface IReactiveProperty<T> : IReadOnlyReactiveProperty<T>
@@ -151,10 +152,6 @@ namespace UniRx
                 node.OnNext(value);
                 node = node.Next;
             }
-
-#if (CSHARP_7_OR_LATER)
-            promise?.InvokeContinuation(ref value);
-#endif
         }
 
         protected virtual void SetValue(T value)
@@ -248,20 +245,6 @@ namespace UniRx
         {
             return false;
         }
-
-
-#if (CSHARP_7_OR_LATER)
-
-        ReactivePropertyReusablePromise<T> promise;
-
-        public UniTask<T> WaitUntilValueChangedAsync()
-        {
-            if (promise != null) return promise.Task;
-            promise = new ReactivePropertyReusablePromise<T>();
-            return promise.Task;
-        }
-
-#endif
     }
 
     /// <summary>
@@ -454,10 +437,6 @@ namespace UniRx
                 node.OnNext(value);
                 node = node.Next;
             }
-
-#if (CSHARP_7_OR_LATER)
-            promise?.InvokeContinuation(ref value);
-#endif
         }
 
         void IObserver<T>.OnError(Exception error)
@@ -490,19 +469,6 @@ namespace UniRx
         {
             return false;
         }
-
-#if (CSHARP_7_OR_LATER)
-
-        ReactivePropertyReusablePromise<T> promise;
-
-        public UniTask<T> WaitUntilValueChangedAsync()
-        {
-            if (promise != null) return promise.Task;
-            promise = new ReactivePropertyReusablePromise<T>();
-            return promise.Task;
-        }
-
-#endif
     }
 
     /// <summary>
@@ -525,15 +491,60 @@ namespace UniRx
             return new ReadOnlyReactiveProperty<T>(source);
         }
 
-#if (CSHARP_7_OR_LATER)
+#if CSHARP_7_OR_LATER || (UNITY_2018_3_OR_NEWER && (NET_STANDARD_2_0 || NET_4_6))
 
-        public static UniTask<T>.Awaiter GetAwaiter<T>(this IReadOnlyReactiveProperty<T> source)
+        static readonly Action<object> Callback = CancelCallback;
+
+        static void CancelCallback(object state)
         {
-            return source.WaitUntilValueChangedAsync().GetAwaiter();
+            var tuple = (Tuple<ICancellableTaskCompletionSource, IDisposable>)state;
+            tuple.Item2.Dispose();
+            tuple.Item1.TrySetCanceled();
+        }
+
+        public static Task<T> WaitUntilValueChangedAsync<T>(this IReadOnlyReactiveProperty<T> source, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var tcs = new CancellableTaskCompletionSource<T>();
+
+            var disposable = new SingleAssignmentDisposable();
+            if (source.HasValue)
+            {
+                // Skip first value
+                var isFirstValue = true;
+                disposable.Disposable = source.Subscribe(x =>
+                {
+                    if (isFirstValue)
+                    {
+                        isFirstValue = false;
+                        return;
+                    }
+                    else
+                    {
+                        disposable.Dispose(); // finish subscription.
+                        tcs.TrySetResult(x);
+                    }
+                }, ex => tcs.TrySetException(ex), () => tcs.TrySetCanceled());
+            }
+            else
+            {
+                disposable.Disposable = source.Subscribe(x =>
+                {
+                    disposable.Dispose(); // finish subscription.
+                    tcs.TrySetResult(x);
+                }, ex => tcs.TrySetException(ex), () => tcs.TrySetCanceled());
+            }
+
+            cancellationToken.Register(Callback, Tuple.Create(tcs, disposable.Disposable), false);
+
+            return tcs.Task;
+        }
+
+        public static System.Runtime.CompilerServices.TaskAwaiter<T> GetAwaiter<T>(this IReadOnlyReactiveProperty<T> source)
+        {
+            return source.WaitUntilValueChangedAsync(CancellationToken.None).GetAwaiter();
         }
 
 #endif
-
 
         /// <summary>
         /// Create ReadOnlyReactiveProperty with distinctUntilChanged: false.
